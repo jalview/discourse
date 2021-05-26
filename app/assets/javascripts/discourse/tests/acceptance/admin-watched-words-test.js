@@ -113,6 +113,7 @@ acceptance("Admin - Watched Words - Bad regular expressions", function (needs) {
           {
             id: 1,
             word: "[.*",
+            regexp: "[.*",
             action: "block",
           },
         ],
@@ -123,9 +124,6 @@ acceptance("Admin - Watched Words - Bad regular expressions", function (needs) {
           require_approval: null,
           flag: null,
           replace: null,
-        },
-        compiled_regular_expression_errors: {
-          block: true,
         },
       });
     });

@@ -33,19 +33,16 @@ export default Controller.extend({
     return this.findAction(actionName);
   },
 
-  @discourseComputed(
-    "currentAction.compiledRegularExpression",
-    "currentAction.compiledRegularExpressionError"
-  )
-  regexpError(regex, regexError) {
-    if (regexError) {
-      return I18n.t("admin.watched_words.invalid_regex");
-    }
-
-    try {
-      RegExp(regex);
-    } catch {
-      return I18n.t("admin.watched_words.invalid_regex");
+  @discourseComputed("currentAction.words.[]")
+  regexpError(words) {
+    for (let i = 0; i < words.length; ++i) {
+      try {
+        RegExp(words[i].regexp);
+      } catch {
+        return I18n.t("admin.watched_words.invalid_regex", {
+          word: words[i].word,
+        });
+      }
     }
   },
 
