@@ -52,6 +52,8 @@ WatchedWord.reopenClass({
           count: actions[n].length,
           regularExpressions: list.regular_expressions,
           compiledRegularExpression: list.compiled_regular_expressions[n],
+          compiledRegularExpressionError:
+            list.compiled_regular_expression_errors[n],
         });
       });
     });

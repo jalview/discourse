@@ -31,5 +31,6 @@ export default {
       replace: "(?:\\W|^)(hi)(?=\\W|$)",
       tag: "(?:\\W|^)(hello)(?=\\W|$)",
     },
+    compiled_regular_expression_errors: {}
   },
 };
