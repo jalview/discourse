@@ -483,7 +483,7 @@ module Email
       # Remove them and anything that comes after. Leave in moz-txt-link- classes as they're links.
       elided = doc.css("*[@class]:mozfilter", Class.new {
         def mozfilter node_set
-          node_set.find_all { |node| node["class"] !~ /^moz-txt-link\b/ and node["class"] =~ /^moz-/ }
+          node_set.find_all { |node| node["class"] =~ /^moz-/ and node["class"] !~ /^moz-txt-link\b/ }
         end
       }.new).remove
       to_markdown(doc.to_html, elided.to_html)
