@@ -106,6 +106,7 @@ describe Search do
 
     it "includes custom tables" do
       begin
+        SiteSetting.tagging_enabled = false
         expect(Search.execute("test").posts[0].topic.association(:category).loaded?).to be true
         expect(Search.execute("test").posts[0].topic.association(:tags).loaded?).to be false
 
@@ -156,11 +157,11 @@ describe Search do
       SearchIndexer.index(user2, force: true)
       result = Search.execute("test", guardian: Guardian.new(user2))
 
-      expect(result.users.first.custom_data).to eq([
+      expect(result.users.find { |u| u.id == user.id }.custom_data).to eq([
         { name: "custom field", value: "test" },
         { name: "another custom field", value: "longer test" }
       ])
-      expect(result.users.last.custom_data).to eq([
+      expect(result.users.find { |u| u.id == user2.id }.custom_data).to eq([
         { name: "another custom field", value: "second user test" }
       ])
     end

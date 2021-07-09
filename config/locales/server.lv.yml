@@ -112,12 +112,8 @@ lv:
       <<: *errors
   staff_category_name: "Personāls"
   trust_levels:
-    newuser:
-      title: "jauns lietotājs"
-    member:
-      title: "biedrs"
-    regular:
-      title: "regulārs"
+    admin: "Administrators"
+    staff: "Personāls"
   rate_limiter:
     hours:
       zero: "%{count} stundas"
@@ -458,8 +454,6 @@ lv:
     actions:
       agree_and_suspend:
         title: "Apturētie lietotāji"
-      delete_spammer:
-        title: "Izdzēst spamotāju"
       delete_single:
         title: "Dzēst"
       disagree:
@@ -473,8 +467,6 @@ lv:
           title: "Dzēst lietotāju."
       reject:
         title: "Noraidīt"
-      delete_user:
-        title: "Dzēst lietotāju."
   time:
     <<: *datetime_formats
   activemodel:

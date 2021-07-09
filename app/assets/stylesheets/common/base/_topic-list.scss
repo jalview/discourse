@@ -212,6 +212,7 @@
     }
 
     td span {
+      position: relative; // Chrome needs this, otherwise the line is above the text
       background-color: var(--secondary);
       color: var(--danger-medium);
       padding: 0 8px;
@@ -277,8 +278,9 @@
   }
 
   .topic-excerpt {
+    display: block;
     font-size: $font-down-1;
-    margin-top: 5px;
+    margin-top: 0.33em;
     color: var(--primary-high);
     word-wrap: break-word;
     line-height: $line-height-large;
@@ -394,7 +396,7 @@ div.education {
   border-top: 3px solid var(--primary-low);
   border-bottom: 1px solid var(--primary-low);
 
-  .badge-notification.new-posts {
+  .badge-notification.unread-posts {
     vertical-align: text-bottom;
   }
 }

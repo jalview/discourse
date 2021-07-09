@@ -12,6 +12,13 @@ export default {
         small_action: 3,
         whisper: 4,
       },
+      trust_levels: {
+        newuser: 0,
+        basic: 1,
+        member: 2,
+        regular: 3,
+        leader: 4,
+      },
       groups: [
         { id: 0, name: "everyone" },
         { id: 1, name: "admins" },
@@ -28,6 +35,7 @@ export default {
         "latest",
         "unread",
         "new",
+        "top",
         "starred",
         "read",
         "posted",
@@ -533,28 +541,6 @@ export default {
           icon: null,
           id: 7,
           is_custom_flag: true,
-        },
-      ],
-      trust_levels: [
-        {
-          id: 0,
-          name: "new user",
-        },
-        {
-          id: 1,
-          name: "basic user",
-        },
-        {
-          id: 2,
-          name: "member",
-        },
-        {
-          id: 3,
-          name: "regular",
-        },
-        {
-          id: 4,
-          name: "leader",
         },
       ],
       archetypes: [

@@ -44,9 +44,11 @@ class CurrentUserSerializer < BasicUserSerializer
              :read_faq,
              :automatically_unpin_topics,
              :mailing_list_mode,
+             :treat_as_new_topic_start_date,
              :previous_visit_at,
              :seen_notification_id,
              :primary_group_id,
+             :flair_group_id,
              :can_create_topic,
              :can_create_group,
              :link_posting_access,
@@ -276,6 +278,10 @@ class CurrentUserSerializer < BasicUserSerializer
 
   def mailing_list_mode
     object.user_option.mailing_list_mode
+  end
+
+  def treat_as_new_topic_start_date
+    object.user_option.treat_as_new_topic_start_date
   end
 
   def skip_new_user_tips

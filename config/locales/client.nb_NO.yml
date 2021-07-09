@@ -182,7 +182,6 @@ nb_NO:
     submit: "Utfør"
     generic_error: "Beklager, det har oppstått en feil."
     generic_error_with_reason: "Det oppstod et problem: %{error}"
-    go_ahead: "Fortsett"
     sign_up: "Registrer deg"
     log_in: "Logg inn"
     age: "Alder"
@@ -207,7 +206,6 @@ nb_NO:
     now: "akkurat nå"
     read_more: "les mer"
     more: "Mer"
-    less: "Mindre"
     never: "aldri"
     every_30_minutes: "hvert 30. minutt"
     every_hour: "hver time"
@@ -216,7 +214,6 @@ nb_NO:
     every_month: "hver måned"
     every_six_months: "hver sjette måned"
     max_of_count: "maksimum av %{count}"
-    alternation: "eller"
     character_count:
       one: "%{count} tegn"
       other: "%{count} tegn"
@@ -402,8 +399,8 @@ nb_NO:
     time_shortcut:
       later_today: "Senere i dag"
       tomorrow: "I morgen"
-      next_week: "Neste uke"
       later_this_week: "Senere denne uken"
+      this_weekend: "Denne uken"
       next_month: "Neste måned"
       custom: "Egendefinert dato og tid"
     user_action:
@@ -441,6 +438,10 @@ nb_NO:
       total_rows:
         one: "%{count} bruker"
         other: "%{count} brukere"
+      edit_columns:
+        save: "Lagre"
+      group:
+        all: "alle grupper"
     group_histories:
       actions:
         change_group_setting: "Endre gruppeinnstillinger"
@@ -449,9 +450,6 @@ nb_NO:
         make_user_group_owner: "Gjør til eier"
         remove_user_as_group_owner: "Trekk tilbake eierstatus"
     groups:
-      add_members:
-        usernames:
-          input_placeholder: "Brukernavn"
       requests:
         title: "Forespørsler"
         reason: "Begrunnelse"
@@ -461,7 +459,7 @@ nb_NO:
         title: "Behandle"
         name: "Navn"
         full_name: "Fullt navn"
-        add_members: "Legg til medlemmer"
+        invite_members: "Inviter"
         delete_member_confirm: "Fjern '%{username}' fra gruppen '%{group}'?"
         profile:
           title: Profil
@@ -471,13 +469,12 @@ nb_NO:
           notification: Varsling
         email:
           title: "E-post"
+          last_updated_by: "av"
           credentials:
             username: "Brukernavn"
             password: "Passord"
           settings:
             title: "Innstillinger"
-          mailboxes:
-            disabled: "deaktivert"
         membership:
           title: Medlemskap
           access: Tilgang
@@ -1613,7 +1610,6 @@ nb_NO:
       back_to_list: "Tilbake til Listen over Emner"
       options: "Valg for emner"
       show_links: "vis lenker i dette emnet"
-      toggle_information: "vis/skjul detaljer for emnet"
       read_more_in_category: "Vil du lese mer? Les andre emner i %{catLink} eller %{latestLink}."
       read_more: "Vil du lese mer? %{catLink} eller %{latestLink}."
       browse_all_categories: Se alle kategorier
@@ -2338,7 +2334,6 @@ nb_NO:
         show_incoming_updated_topics: "%{shortcut} Vis oppdaterte emner"
         search: "%{shortcut} Søk"
         help: "%{shortcut} Åpne tastaturhjelp"
-        dismiss_new_posts: "%{shortcut} Forkast Nye/Innlegg"
         dismiss_topics: "%{shortcut} Forkast Emner"
         log_out: "%{shortcut} Logg ut"
       composing:
@@ -2444,11 +2439,7 @@ nb_NO:
           description: "Du vil ikke bli varslet om noe vedrørende nye emner med dette stikkordet, og de vil ikke vises i ulest-listen din."
       groups:
         title: "Stikkordgrupper"
-        about: "Legg stikkord til grupper for å kunne organisere dem enklere."
         new: "Ny gruppe"
-        tags_label: "Stikkord i denne gruppen:"
-        parent_tag_label: "Overordnet stikkord:"
-        parent_tag_description: "Stikkord fra denne gruppen kan ikke brukes med mindre det overordnede stikkordet er til stede."
         one_per_topic_label: "Begrens til ett stikkord fra denne gruppen per emne "
         new_name: "Ny stikkordgruppe"
         save: "Lagre"
@@ -2479,6 +2470,13 @@ nb_NO:
       remaining: "%{remaining} gjenstående"
       options:
         custom: "Egendefinert"
+    trust_levels:
+      names:
+        newuser: "ny bruker"
+        basic: " bruker"
+        member: "medlem"
+        regular: "aktivt medlem"
+        leader: "leder"
   admin_js:
     type_to_filter: "skriv for å filtrere…"
     admin:
@@ -2577,8 +2575,6 @@ nb_NO:
             available: "Gruppenavn tilgjengelig"
             not_available: "Gruppenavn ikke tilgjengelig"
             blank: "Gruppenavnet kan ikke være tomt"
-        add_members:
-          as_owner: "Sett bruker(e) som eier(e) av denne gruppen"
         manage:
           interaction:
             email: E-post
@@ -3145,6 +3141,7 @@ nb_NO:
           censor: "Sensurer"
           require_approval: "Krev godkjenning"
           flag: "Flagg"
+          silence: "Demp"
         action_descriptions:
           block: "Forhindre innlegg som inneholder disse ordene, fra å bli opprettet. Brukeren vil se en feilmelding når vedkommende prøver å opprette innlegget sitt."
           censor: "Tillat innlegg som inneholder disse ordene, men erstatt dem med bokstaver som skjuler de sensurerte ordene."

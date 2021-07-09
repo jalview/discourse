@@ -93,7 +93,6 @@ bs_BA:
       maximum_staged_user_per_email_reached: "Dosegnut je maksimalni broj stupnjevanih korisnika kreiranih po e-pošti."
       no_subject: "(nema naslova)"
       no_body: "(nema teksta)"
-      missing_attachment: "(Nedostaje prilog %{filename})"
       errors:
         empty_email_error: "Dešava se kada je sirova pošta koju smo primili bila prazna."
         no_message_id_error: "Dešava se kada pošta nema zaglavlje 'Message-Id'."
@@ -242,16 +241,8 @@ bs_BA:
       has_subcategories: "Can't delete this category because it has sub-categories."
       topic_exists_no_oldest: "Can't delete this category because topic count is %{count}."
   trust_levels:
-    newuser:
-      title: "novi korisnik"
-    basic:
-      title: "korisnik"
-    member:
-      title: "član"
-    regular:
-      title: "pokretač"
-    leader:
-      title: "vođa"
+    admin: "Admin"
+    staff: "Staff"
     change_failed_explanation: "You attempted to demote %{user_name} to '%{new_trust_level}'. However their trust level is already '%{current_trust_level}'. %{user_name} will remain at '%{current_trust_level}' - if you wish to demote user lock trust level first"
   rate_limiter:
     hours:
@@ -1121,8 +1112,6 @@ bs_BA:
       agree_and_silence:
         title: "Stišaj korisnika"
         description: "Složij se sa prijavom i utišaj prijavljenog korisnika (silence)"
-      delete_spammer:
-        title: "Obriši Spamera"
       delete_single:
         title: "Delete"
       disagree:
@@ -1136,8 +1125,6 @@ bs_BA:
           title: "Delete User"
       reject:
         title: "Odbij"
-      delete_user:
-        title: "Delete User"
   activemodel:
     errors:
       <<: *errors

@@ -164,7 +164,6 @@ zh_TW:
     submit: "送出"
     generic_error: "抱歉，發生錯誤。"
     generic_error_with_reason: "發生錯誤: %{error}"
-    go_ahead: "下一步"
     sign_up: "註冊"
     log_in: "登入"
     age: "已建立"
@@ -191,7 +190,6 @@ zh_TW:
     more: "更多"
     x_more:
       other: "%{count} 更多"
-    less: "較少"
     never: "永不"
     every_30_minutes: "每 30 分鐘"
     every_hour: "每小時"
@@ -200,7 +198,6 @@ zh_TW:
     every_month: "每個月"
     every_six_months: "每半年"
     max_of_count: "（最大 %{count}）"
-    alternation: "或"
     character_count:
       other: "%{count} 個字元"
     related_messages:
@@ -231,7 +228,6 @@ zh_TW:
       help:
         bookmark: "點擊以將此話題的第一篇貼文加入書籤"
         unbookmark: "點擊以移除此話題所有書籤"
-        unbookmark_with_reminder: "按一下以移除本主題中的所有書籤和提醒事項。此主題的提醒設定為 %{reminder_at} 。"
     bookmarks:
       not_bookmarked: "將此貼文加入書籤"
       remove: "移除書籤"
@@ -408,9 +404,9 @@ zh_TW:
     time_shortcut:
       later_today: "今日稍晚"
       tomorrow: "明天"
-      next_week: "下週"
       post_local_date: "張貼日期"
       later_this_week: "本週稍晚"
+      this_weekend: "這週末"
       start_of_next_business_week: "星期一"
       start_of_next_business_week_alt: "下個星期一"
       next_month: "下個月"
@@ -449,6 +445,10 @@ zh_TW:
       posts_read_long: "已讀貼文"
       total_rows:
         other: "%{count} 個使用者"
+      edit_columns:
+        save: "儲存"
+      group:
+        all: "所有群組"
     group_histories:
       actions:
         change_group_setting: "更改群組設定"
@@ -459,9 +459,6 @@ zh_TW:
     groups:
       member_added: "已新增"
       member_requested: "請求"
-      add_members:
-        usernames:
-          input_placeholder: "使用者名稱"
       requests:
         title: "請求"
         reason: "原因"
@@ -475,7 +472,7 @@ zh_TW:
         title: "管理"
         name: "名稱"
         full_name: "全名"
-        add_members: "新增成員"
+        invite_members: "邀請"
         delete_member_confirm: "確定要從群組「\\b%{group}」中移除「%{username}'」嗎？"
         profile:
           title: 個人檔案
@@ -485,13 +482,12 @@ zh_TW:
           notification: 通知
         email:
           title: "電子信箱"
+          last_updated_by: "由"
           credentials:
             username: "使用者名稱"
             password: "密碼"
           settings:
             title: "設定"
-          mailboxes:
-            disabled: "停用"
         membership:
           title: 會員身份
           access: 存取
@@ -1697,7 +1693,6 @@ zh_TW:
       back_to_list: "回到話題列表"
       options: "話題選項"
       show_links: "在話題裡顯示連結"
-      toggle_information: "切換話題詳情"
       read_more_in_category: "要閱讀更多貼文嗎? 瀏覽 %{catLink} 裡的話題或 %{latestLink}。"
       read_more: "要閱讀更多貼文嗎? 請按 %{catLink} 或 %{latestLink}。"
       browse_all_categories: 瀏覽所有分類
@@ -2454,7 +2449,6 @@ zh_TW:
         show_incoming_updated_topics: "%{shortcut} 顯示更新話題"
         search: "%{shortcut} 搜尋"
         help: "%{shortcut} 打開按鍵說明"
-        dismiss_new_posts: "%{shortcut} 解除新/貼文提示"
         dismiss_topics: "%{shortcut} 解除話題提示"
         log_out: "%{shortcut} 退出"
       composing:
@@ -2563,11 +2557,7 @@ zh_TW:
           description: "你將不會收到這些分類中的新討論話題通知，它們也不會出現在你的未讀欄內。"
       groups:
         title: "標籤組"
-        about: "將標籤分組以便管理。"
         new: "新標籤組"
-        tags_label: "標籤組內標籤："
-        parent_tag_label: "上級標籤："
-        parent_tag_description: "未設置上級標籤前群組內標籤無法使用。"
         one_per_topic_label: "只可給話題設置一個該組內的標籤"
         new_name: "新標籤組名"
         save: "保存"
@@ -2599,6 +2589,13 @@ zh_TW:
       remaining: "剩餘 %{remaining}"
       options:
         custom: "客製"
+    trust_levels:
+      names:
+        newuser: "新使用者"
+        basic: "初級使用者"
+        member: "成員"
+        regular: "活躍使用者"
+        leader: "資深"
   admin_js:
     type_to_filter: "輸入要搜尋的文字..."
     admin:
@@ -2708,8 +2705,6 @@ zh_TW:
             available: "可以使用此群組名稱"
             not_available: "無法使用此群組名稱"
             blank: "群組名稱不能空白"
-        add_members:
-          as_owner: "將使用者設為此群組的擁有者"
         manage:
           interaction:
             email: Email
@@ -3362,6 +3357,7 @@ zh_TW:
           require_approval: "需要審核"
           flag: "檢舉"
           replace: "取代"
+          silence: "靜音"
         action_descriptions:
           block: "防止含有這些文字的貼文被發佈，當使用者嘗試發送貼文時，會看見錯誤訊息。"
           censor: "允許貼文含有這些文字，但以符碼來取代被禁用的文字。"
@@ -3369,6 +3365,7 @@ zh_TW:
           flag: "允許貼文含有這些文字，但標註成不當的用字以讓管理員能審核。"
         form:
           placeholder_regexp: "正規表示法"
+          link_placeholder: "https://example.com"
           add: "新增"
           success: "成功"
           exists: "已存在"

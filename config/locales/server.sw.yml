@@ -356,16 +356,8 @@ sw:
       topic_exists_no_oldest: "Hauwezi kufuta kategoria hii kwa sababu ina idadi ya mada %{count}."
     uncategorized_description: "Mada ambazo hazina kategoria, au haziwezi kuwekwa kwenye kategoria zingine."
   trust_levels:
-    newuser:
-      title: "mtumiaji mpya"
-    basic:
-      title: "mtumiaji wa kawaida"
-    member:
-      title: "mwanachama"
-    regular:
-      title: "kawaida"
-    leader:
-      title: "kiongozi"
+    admin: "Kiongozi"
+    staff: "Wasaidizi"
     change_failed_explanation: "Ulijaribu kumshusha daraja %{user_name} kwenda '%{new_trust_level}'. Lakini kiwango chake cha uaminifu tayari ni '%{current_trust_level}'. %{user_name} atabaki kwenye '%{current_trust_level}' - kama unataka kumshusha daraja loki kiwango cha uaminifu kwanza."
   post:
     image_placeholder:
@@ -811,7 +803,6 @@ sw:
     notify_mods_when_user_silenced: "Kama mtumiaji akinyamazishwa, tuma ujumbe kwa wasimamizi wote."
     markdown_linkify_tlds: "Orodha ya vikoa vya hali ya juu ambavyo otomatikali ni viungo."
     post_undo_action_window_mins: "Dakika watumiaji wanaruhusiwa kutendua vitendo vya hivi karibuni kwenye chapisho (kupenda, bendera, etc)."
-    pending_users_reminder_delay: "Wajulishe wasimamizi kama watumiaji wapya wamekuwa wanasubiria kibali kwa mda zaidi ya masaa haya. Seti -1 kusitisha taarifa."
     maximum_session_age: "mtumiaji ataendelea kuwa ndani kwa masaa n toka mara ya mwisho alipotembelea"
     site_contact_username: "Jina la msaidizi lililo sahihi litakalotuma ujumbe otomatikali. Kama ikiachwa wazi chaguo-msingi la akaunti ya mfumo litatumika."
     send_welcome_message: "Watumie watumiaji wapya ujumbe wa kuwakaribisha na muongozo mfupi wa kuanzia."
@@ -911,7 +902,6 @@ sw:
     max_new_accounts_per_registration_ip: "Kama kuna akaunti 0 zenye kiwango (n) cha uaminifu kutoka kwenye anwani hii ya mtandao (na hakuna hata mmoja ambaye ni msaidizi or kwenye kiwango cha 2 cha uaminifu au zaidi), kataa usajili kutoka kwenye anwani hiyo."
     num_hours_to_close_topic: "Mda wa masaa kusitisha mada ili kuingilia."
     auto_silence_fast_typers_max_trust_level: "Kiwango cha juu cha uaminifu kunyamazisha wanaochapa haraka sana otomatikali"
-    auto_silence_first_post_regex: "Taarifa zilizo ndani ya mabano hazitapewa kipaumbele kama herufi ni kubwa au ndogo, kama zikipitishwa zitasababisha chapisho la kwanza linyamazishwe na lisubirishwe. Mfano raging|a[bc]a , itasababisha machapisho yote yenye raging au aba au aca yamazishwe mara ya kwanza. Kanuni hii inatokea kwenye chapisho la kwanza tu."
     reply_by_email_enabled: "Ruhusu majibu ya mada kupitia barua pepe."
     delete_all_posts_max: "Kiwango cha juu cha machapisho yanayoweza kufutwa mara moja na kitufe cha Futa Machapisho Yote. Kama mtumiaji ana namba fulani ya machapisho, machapisho hayawezi kufutwa mara moja na mtumiaji hawezi kufutwa. "
     digest_topics: "Kiwango cha juu cha mada maarufu kuonyeshwa kwenye muhtasari wa barua pepe."
@@ -2124,8 +2114,6 @@ sw:
       agree_and_hide:
         title: "Ficha Chapisho"
         description: "Ficha chapisho hili na otomatikali mtumie mtumiaji ujumbe wa kumwambia afanye uhariri."
-      delete_spammer:
-        title: "Futa Muandishi wa Taka"
       delete_single:
         title: "Futa"
       disagree_and_restore:
@@ -2141,8 +2129,6 @@ sw:
           title: "Futa Mtumiaji"
       reject:
         title: "Kataa"
-      delete_user:
-        title: "Futa Mtumiaji"
   activemodel:
     errors:
       <<: *errors

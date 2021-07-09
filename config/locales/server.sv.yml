@@ -104,6 +104,9 @@ sv:
       no_subject: "(inget ämne)"
       no_body: "(ingen meddelandetext)"
       missing_attachment: "(Bilagan %{filename} saknas)"
+      continuing_old_discussion:
+        one: "Fortsätter diskussionen från [%{title}](%{url}), eftersom den skapades för mer än %{count} dag sedan."
+        other: "Fortsätter diskussionen från [%{title}](%{url}), eftersom den skapades för mer än %{count} dagar sedan."
       errors:
         empty_email_error: "Händer när rådata vi mottagit är tom."
         no_message_id_error: "Händer när e-post saknar 'Message-Id'-rubrik."
@@ -256,9 +259,6 @@ sv:
     not_enough_space_on_disk: "Det finns inte tillräckligt mycket utrymme på disken för att ladda upp denna säkerhetskopia."
     invalid_filename: "Säkerhetskopiefilens namn innehåller ogiltiga tecken. Giltiga tecken är a-z 0-9 . - _."
     file_exists: "Filen som du försöker ladda upp finns redan."
-    location:
-      local: "Lokalt"
-      s3: "Amazon S3"
   invalid_params: "Du levererade ogiltiga parametrar till begäran: %{message}"
   not_logged_in: "Du måste vara inloggad för att göra detta."
   not_found: "Den efterfrågade URL:en eller resursen kan inte hittas."
@@ -273,7 +273,7 @@ sv:
   invalid_whisper_access: "Antingen är viskningar inte aktiverade eller så har du inte behörighet för att skapa viskningsinlägg"
   not_in_group:
     title_topic: "Du måste begära medlemskap i gruppen '%{group}' för att se detta ämne."
-    title_category: "Du måste vara i en grupp för att se denna kategori."
+    title_category: "Du måste begära medlemskap i gruppen '%{group}' för att se den här kategorin."
     request_membership: "Begär medlemskap"
     join_group: "Gå med i grupp"
   deleted_topic: "Hoppsan! Detta ämne har tagits bort och är inte längre tillgängligt."
@@ -588,6 +588,8 @@ sv:
           attributes:
             word:
               too_many: "För många ord för den funktionen"
+            base:
+              invalid_url: "Ersättnings-URL är ogiltig"
       <<: *errors
   uncategorized_category_name: "Ej kategoriserad"
   vip_category_name: "Lounge"
@@ -641,16 +643,8 @@ sv:
       topic_exists_no_oldest: "Du kan inte ta bort den här kategorin eftersom antalet ämnen är %{count}."
     uncategorized_description: "Ämnen som inte behöver en kategori, eller som inte passar in i någon annan befintlig kategori."
   trust_levels:
-    newuser:
-      title: "ny användare"
-    basic:
-      title: "grundläggande användare"
-    member:
-      title: "medlem"
-    regular:
-      title: "regelbunden"
-    leader:
-      title: "ledare"
+    admin: "Admin"
+    staff: "Medarbetare"
     change_failed_explanation: "Du försökte degradera %{user_name} till '%{new_trust_level}'. Användarens förtroendenivå är redan '%{current_trust_level}'. %{user_name} kommer behålla '%{current_trust_level}'. Om du vill degradera användaren, lås förtroendenivån först"
   post:
     image_placeholder:
@@ -902,8 +896,10 @@ sv:
     imap_authentication_error: "Det uppstod ett problem med de angivna IMAP-autentiseringsuppgifterna. Kontrollera användarnamn och lösenord och försök igen."
     imap_no_response_error: "Det uppstod ett fel vid kommunikation med IMAP-servern. %{message}"
     smtp_authentication_error: "Det uppstod ett problem med de angivna SMTP-autentiseringsuppgifterna. Kontrollera användarnamn och lösenord och försök igen."
+    authentication_error_gmail_app_password: 'Programspecifikt lösenord krävs. Läs mer i <a target="_blank" href="https://support.google.com/accounts/answer/185833">den här Google Hjälp-artikeln</a>'
     smtp_server_busy_error: "SMTP-servern är för närvarande upptagen. Försök igen senare."
     smtp_unhandled_error: "Det uppstod ett ohanterat fel vid kommunikation med SMTP-servern. %{message}"
+    imap_unhandled_error: "Det uppstod ett ohanterat fel vid kommunikation med IMAP-servern. %{message}"
     connection_error: "Det uppstod ett problem vid anslutning till servern. Kontrollera serverns namn och port och försök igen."
     timeout_error: "Tidsgränsen för anslutning till servern uppnåddes. Kontrollera serverns namn och port och försök igen."
     unhandled_error: "Ohanterat fel vid testning av e-postinställningar. %{message}"
@@ -1398,7 +1394,7 @@ sv:
     title: "Namnet på denna webbplats som används i titel-taggen."
     site_description: "Beskriv denna webbplats i en mening, som sedan används i metabeskrivningstaggen."
     short_site_description: "Kort beskrivning, som används i titel-taggen på hemsidan."
-    contact_email: "E-postadress till huvudansvarig för denna webbplats. Används för kritiska meddelanden såväl som på <a href='%{base_path}/about' target='_blank'>/about</a> kontaktformuläret för brådskande ärenden."
+    contact_email: "E-postadress till nyckelkontakt som är ansvarig för denna webbplats. Används för kritiska aviseringar, och visas även på <a href='%{base_path}/about' target='_blank'>/about</a> för brådskande ärenden."
     contact_url: "Kontakt-URL för denna webbplats. Visas på <a href='%{base_path}/about' target='_blank'>/about</a>-sidan för brådskande ärenden."
     crawl_images: "Hämta bilder från tredjepartskällor för att infoga korrekta bredd- och höjddimensioner."
     download_remote_images_to_local: "Konvertera externa bilder till lokala bilder genom att hämta dem; det motverkar felaktiga bildlänkar."
@@ -1492,7 +1488,7 @@ sv:
     invite_code: "Användare måste ange denna kod för att ha tillåtelse att registrera ett konto, ignoreras om det lämnas tomt (ej skiftlägeskänslig)"
     approve_suspect_users: "Lägg till misstänkta användare i kön för granskning. Misstänkta användare har angett en bio/webbsida men har ingen läsaktivitet."
     review_every_post: "Alla inlägg måste granskas. VARNING! REKOMMENDERAS INTE FÖR MYCKET AKTIVA WEBBPLATSER."
-    pending_users_reminder_delay: "Avisera moderatorer om nya användare har väntat på godkännande längre än så här många timmar. Ange -1 för att inaktivera aviseringar."
+    pending_users_reminder_delay_minutes: "Avisera moderatorer om nya användare har väntat på godkännande längre än så här många minuter. Ange -1 för att inaktivera aviseringar."
     persistent_sessions: "Användarna förblir inloggade när webbläsaren stängs"
     maximum_session_age: "Användaren kommer fortsättningsvis att vara inloggad i n timmar sedan senaste besöket"
     ga_version: "Version av Google Universal Analytics att använda: v3 (analytics.js), v4 (gtag)"
@@ -1542,6 +1538,7 @@ sv:
     send_old_credential_reminder_days: "Påminn om gamla behörigheter efter dag"
     email_token_valid_hours: "Länkarna Glömt lösenord/aktivera konto är giltiga i (n) timmar."
     enable_badges: "Aktivera utmärkelsesystemet"
+    max_favorite_badges: "Maximalt antal utmärkelser som användaren kan välja"
     enable_whispers: "Tiliåt privat kommunikation inom ämnena."
     allow_index_in_robots_txt: "Ange i robots.txt att den här webbplatsen får indexeras av webbsökmotorer. I undantagsfall kan du permanent <a href='%{base_path}/admin/customize/robots'>åsidosätta robots.txt</a>."
     blocked_email_domains: "En textfil avgränsad med vertikalstreck med alla e-postdomäner som användare inte tillåts registrera konton med. Exempel: mailinator.com|trashmail.net"
@@ -1677,6 +1674,11 @@ sv:
     image_preview_jpg_quality: "Kvaliteten på storleksändrade bildfiler (1 är lägsta kvalitet, 99 är bästa kvalitet, 100 för att inaktivera)."
     allow_staff_to_upload_any_file_in_pm: "Låt personalen ladda upp alla filer i PM."
     strip_image_metadata: "Radera metadata för bild."
+    composer_media_optimization_image_enabled: "Möjliggör medieoptimering på klientsidan av uppladdade bildfiler."
+    composer_media_optimization_image_kilobytes_optimization_threshold: "Minsta bildfilstorlek för att utlösa optimering på klientsidan"
+    composer_media_optimization_image_resize_dimensions_threshold: "Minsta bildbredd för att utlösa storleksändring på klientsidan"
+    composer_media_optimization_image_resize_width_target: "Bilder med större bredd än `composer_media_optimization_image_dimensions_resize_threshold` kommer att ändras till denna bredd. Måste vara >= än `composer_media_optimization_image_dimensions_resize_threshold`."
+    composer_media_optimization_image_encode_quality: "JPEG-kodningskvalitet som används i omkodningsprocessen."
     min_ratio_to_crop: "Förhållandet används för att beskära höga bilder. Ange resultatet av bredd/höjd."
     simultaneous_uploads: "Maximalt antal filer som kan dras och släppas in i redigeraren"
     default_invitee_trust_level: "Förvald förtroendenivå (0-4) för inbjudna användare."
@@ -1789,13 +1791,14 @@ sv:
     min_first_post_typing_time: "Minsta tid i millisekunder en användare måste skriva vid redigeringen av sitt första inlägg. Om gränsen inte är uppnådd så kommer inlägget automatiskt att hamna i kön av saker som behöver granskas. Ange 0 för att inaktivera (rekommenderas ej)"
     auto_silence_fast_typers_on_first_post: "Tysta automatiskt användare som inte når upp till min_first_post_typing_time"
     auto_silence_fast_typers_max_trust_level: "Högsta förtroendenivå för att automatiskt tysta snabba författare"
-    auto_silence_first_post_regex: "Skiftlägesokänsligt reguljärt uttryck som, om det godkänns, leder till att användarens första inlägg tystas och skickas till godkännandekön. Till exempel kommer rasande|a[bc]a att tysta alla inlägg som innehåller rasande eller aba eller aca i första inlägget. Gäller bara första inlägget."
+    auto_silence_first_post_regex: "Skiftlägesokänsligt reguljärt uttryck som, om det godkänns, leder till att användarens första inlägg tystas och skickas till godkännandekön. Till exempel kommer rasande|a[bc]a att tysta alla inlägg som innehåller rasande eller aba eller aca i första inlägget. Gäller bara första inlägget. UTFASAT: Använd Tystnad bevakade ord istället."
     reviewable_claiming: "Måste det göras anspråk på granskningsbart innehåll innan det kan ageras?"
     reviewable_default_topics: "Visa granskningsbart innehåll grupperat efter ämne som standard"
     reviewable_default_visibility: "Visa inte artiklar som kan granskas om de inte uppfyller denna prioritering"
-    reviewable_low_priority_threshold: "Prioriteringsfiltret döljer granskningsbara som inte uppfyller denna poäng såvida inte filtret '(valfritt)' används."
+    reviewable_low_priority_threshold: "Prioritetsfiltret döljer granskningsbara objekt som inte uppfyller den här poängen om inte filtret '(valfritt)' används."
     high_trust_flaggers_auto_hide_posts: "Ny användares inlägg döljs automatiskt efter att de har flaggats som skräppost av en användare med minst FN3"
     cooldown_hours_until_reflag: "Hur lång tid användare måste avvakta tills de kan flagga ett inlägg igen"
+    slow_mode_prevents_editing: "Förhindrar 'Långsamt läge' redigering, efter editing_grace_period?"
     reply_by_email_enabled: "Aktivera möjlighet att svara på ämnen via e-post."
     reply_by_email_address: "Mall för inkommande e-postadress för svar via e-post, till exempel: %%{reply_key}@svar.exempel.se eller svar+%%{reply_key}@exempel.se"
     alternative_reply_by_email_addresses: "Lista på alternativa mallar för svar genom inkommen e-post. Exempelvis: %%{reply_key}@svar.exempel.se|replies+%% {reply_key}@exempel.se"
@@ -1950,6 +1953,7 @@ sv:
     notify_about_flags_after: "Om det finns flaggor som inte har hanterats efter detta antal timmar skickas ett personligt meddelande till moderatorerna. Inaktivera genom att ställa in till 0."
     show_create_topics_notice: "Visa ett meddelande som ber administratörerna att skapa några ämnen om webbplatsen har färre än 5 publika ämnen."
     delete_drafts_older_than_n_days: "Ta bort utkast som är äldre än (n) dagar."
+    delete_merged_stub_topics_after_days: "Antal dagar att vänta innan helt sammanslagna stub-ämnen raderas automatiskt. Ställ in till 0 för att aldrig radera stub-ämnen."
     bootstrap_mode_min_users: "Minsta antal användare som krävs för att inaktivera bootstrap-läget (ange 0 för att inaktivera)"
     prevent_anons_from_downloading_files: "Förhindra att anonyma användare hämtar bilagor."
     secure_media: 'Begränsar åtkomst för ALLA uppladdningar (bilder, video, ljud, text, pdf, zip med flera). Om "inloggning krävs" har aktiverats kan endast inloggade användare komma åt uppladdningar. Annars begränsas åtkomst endast till uppladdning av media i privata meddelanden samt privata kategorier. VARNING: Den här inställningen är komplex och kräver djupa administrativa kunskaper. Se detaljer i <a target="_blank" href="https://meta.discourse.org/t/secure-media-uploads/140017">ämnet för säkra media i Meta</a>.'
@@ -2284,7 +2288,8 @@ sv:
       other: "Automatiskt inaktiverad efter %{count} dagar av inaktivitet"
     activated_by_staff: "Aktiverades av personalen"
     new_user_typed_too_fast: "Ny användare skrev för fort"
-    content_matches_auto_block_regex: "Innehållet matchar automatisk blockering av regelbundet uttryck"
+    content_matches_auto_silence_regex: "Innehållet matchar regelbundet uttryck för automatiskt tystande"
+    content_matches_auto_block_regex: "Innehållet matchar regelbundet uttryck för automatisk blockering"
     username:
       short: "måste vara minst %{min} tecken"
       long: "får högst vara %{max} tecken"
@@ -2318,6 +2323,9 @@ sv:
     email_in_spam_header: "Användarens första e-post flaggades som skräppost"
     already_silenced: "Användaren har redan tystats av %{staff} %{time_ago}."
     already_suspended: "Användaren har redan avstängts av %{staff} %{time_ago}."
+    cannot_delete_has_posts:
+      one: "Användaren %{username} har %{count} inlägg i ett offentligt ämne eller personligt meddelande, så den kan inte tas bort."
+      other: "Användaren %{username} har %{count} inlägg i ett offentligt ämne eller personligt meddelande, så de kan inte tas bort."
   reviewables_reminder:
     submitted:
       one: "Artiklar skickades in över %{count} timme sedan. [Vi ber dig granska dem] (%{base_path}/review)."
@@ -3005,6 +3013,7 @@ sv:
     only_reply_by_email_pm: "Besvara det här e-postmeddelandet för att svara %{participants}."
     visit_link_to_respond: "[Gå till ämnet](%{base_url}%{url}) för att ge ditt svar."
     visit_link_to_respond_pm: "[Gå till meddelandet](%{base_url}%{url}) för att svara till %{participants}."
+    reply_above_line: "## Vi ber dig skriva ditt svar ovanför denna rad. ##"
     posted_by: "Publicerat av %{username} den %{post_date}"
     pm_participants: "Deltagare: %{participants}"
     invited_group_to_private_message_body: "%{username} bjöd in @%{group_name} till ett meddelande\n\n> **[%{topic_title}](%{topic_url})**\n>\n> %{topic_excerpt}\n\nvid \n\n> %{site_title} -- %{site_description}\n\nOm du är intresserad, klicka på länken nedan:\n\n%{topic_url}\n"
@@ -4144,10 +4153,6 @@ sv:
       agree_and_hide:
         title: "Dölj inlägg"
         description: "Dölj detta inlägg och sänd automatiskt användaren ett meddelande som uppmanar om att redigera det."
-      delete_spammer:
-        title: "Radera skräppostare"
-        description: "Radera användaren och användarens alla inlägg och ämnen."
-        confirm: "Är du säker på att du vill radera användarens alla inlägg, ämnen, samt blockera deras IP och e-postadresser?"
       delete_single:
         title: "Radera"
       delete:
@@ -4204,8 +4209,6 @@ sv:
       approve_and_restore:
         title: "Godkänn och återställ inlägg"
       delete_user:
-        title: "Ta bort användare"
-        confirm: "Är du säker på att du vill radera den här användaren? Detta kommer att ta bort användarens alla inlägg och blockera användarens e-postadress och IP-adress."
         reason: "Raderad via granskningskön"
   email_style:
     html_missing_placeholder: "Html-mallen måste omfatta %{placeholder}"

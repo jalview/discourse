@@ -57,7 +57,6 @@ sl:
       maximum_staged_user_per_email_reached: "Dosegli največje število prirejenih uporabnikov na e-sporočilo."
       no_subject: "(ni naslova)"
       no_body: "(ni vsebine)"
-      missing_attachment: "(priponka %{filename} manjka)"
   errors: &errors
     format: ! "%{attribute} %{message}"
     format_with_full_message: "<b>%{attribute}</b>: %{message}"
@@ -339,16 +338,8 @@ sl:
         other: "Ne moremo odstraniti to kategorijo ker ima %{count} tem. Najstarejša tema je %{topic_link}."
     uncategorized_description: "Teme, ki ne potrebujejo kategorijo ali ne sodijo v nobeno obstoječo kategorijo."
   trust_levels:
-    newuser:
-      title: "nov uporabnik"
-    basic:
-      title: "uporabnik"
-    member:
-      title: "član"
-    regular:
-      title: "redni uporabnik"
-    leader:
-      title: "vodja"
+    admin: "Admin"
+    staff: "Osebje"
   post:
     has_likes:
       one: "%{count} všeček"
@@ -2143,10 +2134,6 @@ sl:
       agree_and_hide:
         title: "Skrij prispevek"
         description: "Skrij prispevek in samodejno pošlji zasebno sporočilo uporabniku, kjer ga prosiš, da naj spremenijo prispevek."
-      delete_spammer:
-        title: "Izbriši spamerja"
-        description: "Izbriši uporabnika in vse njihove prispevke in teme."
-        confirm: "Ali ste prepričani, da hočete izbrisati vse uporabnikove prispevke, teme in blokirati njegovo IP naslov in e-naslove?"
       delete_single:
         title: "Izbriši"
       delete:
@@ -2191,8 +2178,6 @@ sl:
       reject:
         title: "Zavrni"
       delete_user:
-        title: "Izbriši uporabnika"
-        confirm: "Ali ste prepričani, da hočete izbrisati uporabnika? To bo izbrisalo vse njihove prispevke in blokiralo njihov e-naslov in IP naslov."
         reason: "Izbriši preko vrste za pregled"
   activemodel:
     errors:

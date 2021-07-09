@@ -128,7 +128,7 @@ class TopicsController < ApplicationController
     end
 
     page = params[:page]
-    if (page < 0) || ((page - 1) * @topic_view.chunk_size > @topic_view.topic.highest_post_number)
+    if (page < 0) || ((page - 1) * @topic_view.chunk_size >= @topic_view.topic.highest_post_number)
       raise Discourse::NotFound
     end
 
@@ -434,6 +434,8 @@ class TopicsController < ApplicationController
     else
       guardian.ensure_can_moderate!(@topic)
     end
+
+    params[:until] === '' ? params[:until] = nil : params[:until]
 
     @topic.update_status(status, enabled, current_user, until: params[:until])
 
@@ -919,7 +921,7 @@ class TopicsController < ApplicationController
       topic_ids = params[:topic_ids].map { |t| t.to_i }
     elsif params[:filter] == 'unread'
       tq = TopicQuery.new(current_user)
-      topics = TopicQuery.unread_filter(tq.joined_topic_user, current_user.id, staff: guardian.is_staff?).listable_topics
+      topics = TopicQuery.unread_filter(tq.joined_topic_user, staff: guardian.is_staff?).listable_topics
       topics = TopicQuery.tracked_filter(topics, current_user.id) if params[:tracked].to_s == "true"
 
       if params[:category_id]
@@ -968,7 +970,7 @@ class TopicsController < ApplicationController
         Topic.joins(:tags).where(tags: { name: params[:tag_id] })
       else
         if params[:tracked].to_s == "true"
-          TopicQuery.tracked_filter(TopicQuery.new(current_user).new_results, current_user.id)
+          TopicQuery.tracked_filter(TopicQuery.new(current_user).new_results(limit: false), current_user.id)
         else
           current_user.user_stat.update_column(:new_since, Time.zone.now)
           Topic

@@ -163,7 +163,6 @@ th:
     submit: "ตกลง"
     generic_error: "ขออภัย เกิดข้อผิดพลาดขึ้น"
     generic_error_with_reason: "เกิดข้อผิดพลาดขึ้น: %{error}"
-    go_ahead: "ไปต่อ"
     sign_up: "สมัครสมาชิก"
     log_in: "เข้าสู่ระบบ"
     age: "อายุ"
@@ -190,7 +189,6 @@ th:
     more: "เพิ่มเติม"
     x_more:
       other: "อีก %{count}"
-    less: "น้อย"
     never: "ไม่เคย"
     every_30_minutes: "ทุก 30 นาที"
     every_hour: "ทุกชั่วโมง"
@@ -199,7 +197,6 @@ th:
     every_month: "ทุกเดือน"
     every_six_months: "ทุกหกเดือน"
     max_of_count: "สูงสุดของ %{count}"
-    alternation: "หรือ"
     character_count:
       other: "%{count} ตัวอักษร"
     related_messages:
@@ -406,8 +403,8 @@ th:
       later_today: "ภายหลังในวันนี้"
       next_business_day: "ในวันทำการถัดไป"
       tomorrow: "พรุ่งนี้"
-      next_week: "สัปดาห์หน้า"
       later_this_week: "ภายหลังในสัปดาห์นี้"
+      this_weekend: "สัปดาห์นี้"
       start_of_next_business_week: "วันจันทร์"
       start_of_next_business_week_alt: "วันจันทร์หน้า"
       next_month: "เดือนหน้า"
@@ -447,6 +444,10 @@ th:
       last_updated: "อัปเดตล่าสุด:"
       total_rows:
         other: "%{count} ผู้ใช้"
+      edit_columns:
+        save: "บันทึก"
+      group:
+        all: "กลุ่มทั้งหมด"
     group_histories:
       actions:
         change_group_setting: "แก้ไขการตั้งค่ากลุ่ม"
@@ -456,9 +457,6 @@ th:
     groups:
       member_added: "เพิ่ม"
       member_requested: "ร้องขอเมื่อ"
-      add_members:
-        usernames:
-          input_placeholder: "ชื่อผู้ใช้"
       requests:
         title: "คำร้องขอ"
         reason: "เหตุผล"
@@ -470,7 +468,7 @@ th:
         title: "จัดการ"
         name: "ชื่อ"
         full_name: "ชื่อ-นามสกุล"
-        add_members: "เพิ่มสมาชิก"
+        invite_members: "เชิญ"
         delete_member_confirm: "ลบ '%{username}' ออกจากกลุ่ม '%{group}' ใช่ไหม"
         profile:
           title: โปรไฟล์
@@ -479,13 +477,12 @@ th:
           notification: การแจ้งเตือน
         email:
           title: "อีเมล"
+          last_updated_by: "โดย"
           credentials:
             username: "ชื่อผู้ใช้"
             password: "รหัสผ่าน"
           settings:
             title: "การตั้งค่า"
-          mailboxes:
-            disabled: "ปิดใช้งานแล้ว"
         membership:
           title: การเป็นสมาชิก
           access: การเข้าถึง
@@ -2303,7 +2300,6 @@ th:
         show_incoming_updated_topics: "%{shortcut} แสดงกระทู้ที่อัปเดต"
         search: "%{shortcut}ค้นหา"
         help: "%{shortcut} เปิดความช่วยเหลือของแป้นพิมพ์"
-        dismiss_new_posts: "%{shortcut} ยกเลิกการโพสใหม่"
         dismiss_topics: "%{shortcut} ยกเลิกหัวข้อ"
         log_out: "%{shortcut} ออกจากระบบ"
       bookmarks:
@@ -2406,7 +2402,6 @@ th:
           title: "ปิด"
       groups:
         new: "กลุ่มใหม่"
-        tags_label: "แท็กในกลุ่มนี้:"
         one_per_topic_label: "จำกัดหนึ่งแท็กต่อหนึ่งกระทู้จากกลุ่มนี้"
         save: "บันทึก"
         delete: "ลบ"
@@ -2429,6 +2424,10 @@ th:
       dismiss: "ซ่อน"
     do_not_disturb:
       remaining: "เหลืออีก %{remaining}"
+    trust_levels:
+      names:
+        member: "สมาชิก"
+        regular: "ทั่วไป"
   admin_js:
     type_to_filter: "พิมพ์เพื่อกรอง..."
     admin:
@@ -2825,7 +2824,9 @@ th:
           censor: "เซนเซอร์"
           require_approval: "ต้องได้รับการอนุมัติ"
           flag: "ธง"
+          link: "ลิงก์"
         form:
+          link_label: "ลิงก์"
           add: "เพิ่ม"
           success: "สำเร็จ"
           exists: "มีอยู่แล้ว"

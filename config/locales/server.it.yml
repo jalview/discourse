@@ -103,7 +103,6 @@ it:
       maximum_staged_user_per_email_reached: "E' stato raggiunto il numero massimo di utenti temporanei creati via email."
       no_subject: "(nessun oggetto)"
       no_body: "(nessun corpo del messaggio)"
-      missing_attachment: "(Manca l'allegato %{filename})"
       errors:
         empty_email_error: "Succede quando l'email ricevuta era vuota."
         no_message_id_error: "Succede quando l'email non ha l'intestazione 'Message-Id'."
@@ -256,9 +255,6 @@ it:
     not_enough_space_on_disk: "Non c'è abbastanza spazio su disco per caricare questo backup."
     invalid_filename: "Il nome del file di backup contiene caratteri non validi. I caratteri validi sono a-z 0-9 . - _."
     file_exists: "Il file che stai provando a caricare esiste già."
-    location:
-      local: "Locale"
-      s3: "Amazon S3"
   invalid_params: "Hai fornito parametri non validi alla richiesta: %{message}"
   not_logged_in: "Devi essere connesso per far ciò."
   not_found: "L'URL o la risorsa richiesta non sono stati trovati."
@@ -273,7 +269,6 @@ it:
   invalid_whisper_access: "I sussurri non sono abilitati oppure non hai i permessi per creare sussurri"
   not_in_group:
     title_topic: "Devi richiedere l'iscrizione al gruppo \"%{group}\" per visualizzare questo argomento."
-    title_category: "Devi essere in un gruppo per vedere questa categoria."
     request_membership: "Richiedi di Iscrizione"
     join_group: "Unisciti al Gruppo"
   deleted_topic: "Ops! Questo argomento è stato eliminato e non è più disponibile."
@@ -576,6 +571,8 @@ it:
           attributes:
             word:
               too_many: "Troppe parole per quest'azione"
+            base:
+              invalid_url: "L'URL sostitutivo non è valido"
       <<: *errors
   uncategorized_category_name: "Non categorizzato"
   vip_category_name: "Salotto"
@@ -649,16 +646,8 @@ it:
       topic_exists_no_oldest: "Non puoi cancellare questa categoria perché il numero di argomenti è di %{count}."
     uncategorized_description: "Argomenti che non necessitano di una categoria, o che non ricadono in nessuna categoria esistente."
   trust_levels:
-    newuser:
-      title: "nuovo utente"
-    basic:
-      title: "utente base"
-    member:
-      title: "assiduo"
-    regular:
-      title: "esperto"
-    leader:
-      title: "veterano"
+    admin: "Amministratore"
+    staff: "Staff"
     change_failed_explanation: "Hai cercato di degradare %{user_name} a '%{new_trust_level}'. Però il suo livello di esperienza è già '%{current_trust_level}'. %{user_name} resterà a '%{current_trust_level}' - se vuoi degradarlo, prima blocca il suo livello di esperienza"
   post:
     image_placeholder:
@@ -898,8 +887,10 @@ it:
     imap_authentication_error: "Si è verificato un problema con le credenziali IMAP fornite. Controlla il nome utente e la password e riprova."
     imap_no_response_error: "Si è verificato un errore durante la comunicazione con il server IMAP. %{message}"
     smtp_authentication_error: "Si è verificato un problema con le credenziali SMTP fornite. Controlla il nome utente e la password e riprova."
+    authentication_error_gmail_app_password: 'È richiesta una password specifica dell''applicazione. Ulteriori informazioni su <a target="_blank" href="https://support.google.com/accounts/answer/185833">questo articolo della Guida di Google</a>'
     smtp_server_busy_error: "Il server SMTP è attualmente occupato. Riprova più tardi."
     smtp_unhandled_error: "Si è verificato un errore non gestito durante la comunicazione con il server SMTP. %{message}"
+    imap_unhandled_error: "Si è verificato un errore non gestito durante la comunicazione con il server IMAP. %{message}"
     connection_error: "Si è verificato un problema durante la connessione con il server. Controlla il nome e la porta del server e riprova."
     timeout_error: "Connessione al server scaduta. Controlla il nome e la porta del server e riprova."
     unhandled_error: "Errore non gestito durante il test delle impostazioni e-mail. %{message}"
@@ -1394,7 +1385,6 @@ it:
     title: "Il nome di questo sito, da usare nell'attributo title."
     site_description: "Descrivi questo sito in una frase, da usare nell'attributo meta description."
     short_site_description: "Breve descrizione, come usata nel titolo dell'Etichetta in homepage."
-    contact_email: "Indirizzo email del contatto principale responsabile di questo sito. Utilizzato per notifiche critiche, nonché sul modulo di contatto <a href='%{base_path}/about' target='_blank'>/ su</a> per questioni urgenti."
     contact_url: "URL di contatto per questo sito. Visualizzato nella pagina <a href='%{base_path}/about' target='_blank'>/ Informazioni</a> , sezione contatti urgenti."
     crawl_images: "Recupera le immagini dagli URL remoti per inserire le dimensioni corrette di ampiezza e altezza nel tag."
     download_remote_images_to_local: "Scarica localmente le immagini remote; ciò permettei di evitare immagini assenti."
@@ -1487,7 +1477,6 @@ it:
     invite_code: "L&#39;utente deve digitare questo codice per consentire la registrazione dell&#39;account, ignorato quando vuoto (senza distinzione tra maiuscole e minuscole)"
     approve_suspect_users: "Aggiungi utenti sospetti alla coda di revisione. Gli utenti sospetti hanno inserito una biografia o un sito web ma non hanno attività di lettura."
     review_every_post: "Tutti i messaggi devono essere revisionati. ATTENZIONE! NON CONSIGLIATO PER SITI MOLTO ATTIVI."
-    pending_users_reminder_delay: "Notifica i moderatori se nuovi utenti sono in attesa di approvazione per più di queste ore. Imposta a -1 per disabilitare le notifiche."
     persistent_sessions: "Gli utenti rimarranno connessi alla chiusura del browser"
     maximum_session_age: "L'utente resterà connesso per n ore dall'ultima visita"
     ga_version: "Versione di Google Universal Analytics da usare: v3 (analytics.js), v4 (gtag)"
@@ -1756,11 +1745,9 @@ it:
     min_first_post_typing_time: "Quantità minima di tempo in millisecondi che un utente deve impiegare per la digitazione del primo messaggio, se non viene raggiunta la soglia il messaggio verrà automaticamente inserito nella coda dei messaggi da approvare. Impostare su 0 per disabilitare (non consigliato)"
     auto_silence_fast_typers_on_first_post: "Silenzia automaticamente gli utenti che non soddisfano min_first_post_typing_time"
     auto_silence_fast_typers_max_trust_level: "Livello di esperienza massimo per silenziare automaticamente i digitatori veloci"
-    auto_silence_first_post_regex: "Regex senza distinzione tra maiuscole e minuscole che, se passato, causerà il silenziamento del primo messaggio dell'utente e che sarà inviato nella coda dei messaggi da approvare. Esempio: rabbia|a[bc]a, fa in modo che tutti i messaggi contenenti le parole rabbia o aba o aca siano silenziati in un primo momento. Si applica solo al primo messaggio."
     reviewable_claiming: "È necessario rivendicare il contenuto revisionabile prima che possa essere manipolato?"
     reviewable_default_topics: "Mostra contenuto revisionabile raggruppato per argomento per impostazione predefinita"
     reviewable_default_visibility: "Non mostrare elementi revisionabili a meno che non soddisfino questa priorità"
-    reviewable_low_priority_threshold: "Il filtro di priorità nasconde le recensioni che non soddisfano questo punteggio a meno che non venga utilizzato il filtro '(qualsiasi)'."
     high_trust_flaggers_auto_hide_posts: "I messaggi di nuovi utenti vengono automaticamente nascosti dopo essere stati contrassegnati come spam da un utente TL3 +"
     cooldown_hours_until_reflag: "Quanto tempo gli utenti dovranno aspettare prima di poter segnalare nuovamente un messaggio"
     reply_by_email_enabled: "Abilita la possibilità di rispondere ai messaggi tramite email."
@@ -1890,6 +1877,7 @@ it:
     notify_about_flags_after: "Se ci sono segnalazioni che non sono state gestite dopo tale numero di ore, invia un messaggio personale ai moderatori. Impostare su 0 per disabilitare."
     show_create_topics_notice: "Se il sito ha meno di 5 argomenti pubblici, mostra un avviso chiedendo agli amministratori di creare qualche argomento."
     delete_drafts_older_than_n_days: "Elimina bozze più vecchie di (n) giorni."
+    delete_merged_stub_topics_after_days: "Numero di giorni di attesa prima di eliminare automaticamente gli argomenti stub completamente fusi. Impostare a 0 per non eliminare mai gli argomenti stub."
     bootstrap_mode_min_users: "Numero minimo di utenti richiesto per disabilitare la modalità bootstrap (imposta a 0 per disattivare)"
     secure_media: 'Limita l''accesso a TUTTI i caricamenti (immagini, video, audio, testo, pdf, zip, ecc.). Se “login richiesto” è attivato, solo gli utenti registrati possono accedere ai caricamenti. In caso contrario, l''accesso sarà limitato solo per i media caricati in messaggi privati e categorie private. ATTENZIONE: Questa impostazione è complessa e richiede una profonda competenza amministrativa. Per maggiori dettagli visita <a target="_blank" href="https://meta.discourse.org/t/secure-media-uploads/140017">l''argomento sui media sicuri su Meta</a>.'
     slug_generation_method: "Scegli un metodo di generazione delle abbreviazioni. 'encoded' genererà la stringa di codifica percentuale. 'none' disattiverà completamente le abbreviazioni."
@@ -3831,10 +3819,6 @@ it:
       agree_and_hide:
         title: "Nascondi Messaggio"
         description: "Nascondi questo messaggio e invia automaticamente all'utente un messaggio privato che lo invita a modificarlo."
-      delete_spammer:
-        title: "Cancella Spammer"
-        description: "Elimina l'utente e tutti i suoi Messaggi e Argomenti."
-        confirm: "Sei sicuro di voler eliminare tutti i Messaggi e Argomenti di questo utente, e di bloccarne IP e indirizzo email?"
       delete_single:
         title: "Elimina"
       delete:
@@ -3891,8 +3875,6 @@ it:
       approve_and_restore:
         title: "Approva e ripristina il messaggio"
       delete_user:
-        title: "Cancella utente"
-        confirm: "Sei sicuro di voler eliminare quell'utente? Ciò cancellerà tutti i suoi messaggi e bloccherà il suo indirizzo email e l'IP."
         reason: "Eliminato tramite la coda di revisione"
   email_style:
     html_missing_placeholder: "Il template html deve includere %{placeholder}"

@@ -4,6 +4,7 @@ import { Promise } from "rsvp";
 import Topic from "discourse/models/topic";
 import User from "discourse/models/user";
 import { ajax } from "discourse/lib/ajax";
+import { popupAjaxError } from "discourse/lib/ajax-error";
 import discourseComputed from "discourse-common/utils/decorators";
 
 const UserBadge = EmberObject.extend({
@@ -18,6 +19,15 @@ const UserBadge = EmberObject.extend({
     return ajax("/user_badges/" + this.id, {
       type: "DELETE",
     });
+  },
+
+  favorite() {
+    return ajax(`/user_badges/${this.id}/toggle_favorite`, { type: "PUT" })
+      .then((json) => {
+        this.set("is_favorite", json.user_badge.is_favorite);
+        return this;
+      })
+      .catch(popupAjaxError);
   },
 });
 

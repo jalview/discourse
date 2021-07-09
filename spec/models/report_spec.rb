@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 describe Report do
-  let(:user) { Fabricate(:user) }  # id: 3
-  let(:c0) { Fabricate(:category, user: user) }  # id: 3
+  let(:user) { Fabricate(:user) }
+  let(:c0) { Fabricate(:category, user: user) }
   let(:c1) { Fabricate(:category, parent_category: c0, user: user) }  # id: 2
-  let(:c2) { Fabricate(:category, user: user) }  # id: 4
+  let(:c2) { Fabricate(:category, user: user) }
 
   shared_examples 'no data' do
     context "with no data" do
@@ -352,6 +352,8 @@ describe Report do
         expect(report.data.find { |d| d[:x] == TrustLevel[0] }[:y]).to eq 3
         expect(report.data.find { |d| d[:x] == TrustLevel[2] }[:y]).to eq 2
         expect(report.data.find { |d| d[:x] == TrustLevel[4] }[:y]).to eq 1
+
+        expect(report.data.find { |d| d[:x] == TrustLevel[0] }[:url]).to eq '/admin/users/list/newuser'
       end
     end
   end

@@ -4,11 +4,7 @@ class WatchedWordSerializer < ApplicationSerializer
   attributes :id, :word, :regexp, :replacement, :action
 
   def regexp
-    WordWatcher.word_to_regexp(word)
-  end
-
-  def include_regexp?
-    WatchedWord.has_replacement?(action)
+    WordWatcher.word_to_regexp(word, whole: true)
   end
 
   def action

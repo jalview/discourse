@@ -129,9 +129,6 @@ et:
     backup_file_should_be_tar_gz: "Varukoopia peab olema .tar.gz arhiivifail."
     not_enough_space_on_disk: "Varukoopia üleslaadimiseks pole piisavalt kettaruumi."
     invalid_filename: "Varundusfaili nimi sisaldab keelatud sümboleid. Lubatud sümbolid on a-z 0-9 . - _."
-    location:
-      local: "Kohalik"
-      s3: "Amazon S3"
   not_logged_in: "Selleks peate olema sisse logitud."
   not_found: "Päritud URLi või ressurssi ei leitud."
   invalid_access: "Päritud ressursi vaatamiseks puuduvad õigused."
@@ -321,16 +318,8 @@ et:
       topic_exists_no_oldest: "Seda foorumit ei saa kustutada, kuna teemade arv on %{count}."
     uncategorized_description: "Teemad, mis ei vaja või mida ei saa liigitada ühegi olemasoleva foorumi alla."
   trust_levels:
-    newuser:
-      title: "uus kasutaja"
-    basic:
-      title: "baaskasutaja"
-    member:
-      title: "liige"
-    regular:
-      title: "tavaline"
-    leader:
-      title: "juht"
+    admin: "Admin"
+    staff: "Meeskond"
     change_failed_explanation: "Üritasid alandada %{user_name} tasemele '%{new_trust_level}'. Samas on tal juba tase'%{current_trust_level}'. %{user_name} jääb tasemele '%{current_trust_level}' - kui soovid alandada kasutaja taset, siis lukusta kõigepealt usaldustase."
   post:
     image_placeholder:
@@ -1132,8 +1121,6 @@ et:
         title: "Vaigista kasutaja"
       agree_and_hide:
         title: "Peida postitus"
-      delete_spammer:
-        title: "Kustuta spämmija"
       delete_single:
         title: "Kustuta"
       disagree:
@@ -1149,8 +1136,6 @@ et:
           title: "Kustuta kasutaja"
       reject:
         title: "Lükka tagasi"
-      delete_user:
-        title: "Kustuta kasutaja"
   activemodel:
     errors:
       <<: *errors

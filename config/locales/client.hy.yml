@@ -190,7 +190,6 @@ hy:
     submit: "Հաստատել"
     generic_error: "Տեղի է ունեցել սխալ, ներողություն:"
     generic_error_with_reason: "Տեղի է ունեցել սխալ՝ %{error}"
-    go_ahead: "Գնալ առաջ"
     sign_up: "Գրանցվել"
     log_in: "Մուտք"
     age: "Տարիք"
@@ -219,7 +218,6 @@ hy:
     x_more:
       one: "ևս %{count}"
       other: "ևս %{count}"
-    less: "Կրճատ"
     never: "երբեք"
     every_30_minutes: "30 րոպեն մեկ"
     every_hour: "ժամը մեկ"
@@ -228,7 +226,6 @@ hy:
     every_month: "ամիսը մեկ"
     every_six_months: "վեց ամիսը մեկ"
     max_of_count: "առավելագույնը %{count}"
-    alternation: "կամ"
     character_count:
       one: "%{count} սիմվոլ"
       other: "%{count} սիմվոլ"
@@ -260,7 +257,6 @@ hy:
       help:
         bookmark: "Սեղմեք՝ այս թեմայի առաջին գրառումն էջանշելու համար"
         unbookmark: "Սեղմեք՝ այս թեմայի բոլոր էջանշանները ջնջելու համար"
-        unbookmark_with_reminder: "Բոլոր էջանշանները և այդ թեմայի հիշեցումները ջնջելու համար սեղմել: Դուք արդեն ունեք հիշեցում այդ թեմայի համար, որը կարգավորված է %{reminder_at}."
     bookmarks:
       not_bookmarked: "Էջանշել այս գրառումը"
       remove: "Հեռացնել էջանշանը"
@@ -477,8 +473,8 @@ hy:
       later_today: "Այսօր, մի փոքր ուշ"
       next_business_day: "Հաջորդ աշխատանքային օրը: "
       tomorrow: "Վաղը"
-      next_week: "Հաջորդ շաբաթ"
       later_this_week: "Այս շաբաթ, մի փոքր ավելի ուշ"
+      this_weekend: "Այս շաբաթ-կիրակի"
       start_of_next_business_week_alt: "Հաջորդ Երկուշաբթի: "
       next_month: "Հաջորդ ամիս"
       custom: "Սահմանել հիշեցումների ամսաթիվն ու ժամանակը:"
@@ -518,6 +514,11 @@ hy:
       total_rows:
         one: "%{count} օգտատեր"
         other: "%{count} օգտատեր"
+      edit_columns:
+        save: "Պահպանել"
+        reset_to_default: "Վերականգնել լռելյայն"
+      group:
+        all: "բոլոր խմբերը"
     group_histories:
       actions:
         change_group_setting: "Փոխել խմբի կարգավորումը"
@@ -528,9 +529,6 @@ hy:
     groups:
       member_added: "Ավելացված"
       member_requested: "Հարցով "
-      add_members:
-        usernames:
-          input_placeholder: "Օգտանուններ"
       requests:
         title: "Հարցումներ "
         reason: "Պատճառ"
@@ -544,7 +542,7 @@ hy:
         title: "Կառավարել"
         name: "Անուն"
         full_name: "Անուն Ազգանուն"
-        add_members: "Ավելացնել Անդամներ"
+        invite_members: "Հրավիրել"
         delete_member_confirm: "Հեռացնե՞լ '%{username}' օգտանունը '%{group}' խմբից:"
         profile:
           title: Պրոֆիլ
@@ -554,13 +552,12 @@ hy:
           notification: Ծանուցում
         email:
           title: "Էլ. հասցե"
+          last_updated_by: "կողմից"
           credentials:
             username: "Օգտանուն"
             password: "Գաղտնաբառ"
           settings:
             title: "Կարգավորումներ"
-          mailboxes:
-            disabled: "անջատված"
         membership:
           title: Անդամակցություն
           access: Թույլտվություն
@@ -1889,7 +1886,6 @@ hy:
       back_to_list: "Վերադառնալ Թեմաների Ցանկին"
       options: "Թեմաների Տարբերակները"
       show_links: "ցուցադրել այս թեմայի հղումները"
-      toggle_information: "փոխանջատել թեմայի մանրամասները"
       read_more_in_category: "Ցանկանո՞ւմ եք կարդալ ավելին: Դիտեք այլ թեմաներ՝ %{catLink}-ում կամ %{latestLink}."
       read_more: "Ցանկանո՞ւմ եք կարդալ ավելին: %{catLink} կամ %{latestLink}."
       unread_indicator: "Ոչ մի անդամ դեռ չի կարդացել այս թեմայի մինչև վերջին գրառումը: "
@@ -2721,7 +2717,6 @@ hy:
         show_incoming_updated_topics: "%{shortcut} Ցուցադրել թարմացված թեմաները"
         search: "%{shortcut} Որոնել"
         help: "%{shortcut} Բացել ստեղնաշարի օգնականը"
-        dismiss_new_posts: "%{shortcut} Չեղարկել Նոր/Գրառումները"
         dismiss_topics: "%{shortcut} Չեղարկել Թեմաները"
         log_out: "%{shortcut} Ելք"
       composing:
@@ -2808,7 +2803,6 @@ hy:
       tags: "Թեգեր"
       choose_for_topic: "ընտրովի թեգեր"
       info: "Ինֆորմացիա"
-      default_info: "Այս տեգը չի սահմանափակվում որևէ կատեգորիայով և չունի հոմանիշ:"
       category_restricted: "Այս տեգը սահմանափակված է այն կատեգորիաներով, որոնցում մուտքի թույլտվություն չունեք:"
       synonyms: "Հոմանիշներ"
       synonyms_description: "Հետևյալ տեգերի օգտագործման դեպքում, դրանք կփոխարինվեն <b>%{base_tag_name}</b> -ով:"
@@ -2869,14 +2863,9 @@ hy:
           description: "Դուք ծանուցում չեք ստանա այս թեգով որևէ նոր թեմայի մասին, և դրանք չեն հայտնվի Ձեր չկարդացածների ցանկում:"
       groups:
         title: "Թեգավորել Խմբերը"
-        about: "Ավելացրեք թեգեր խմբերին՝ դրանք ավելի հեշտ կառավարելու համար:"
         new: "Նոր Խումբ"
-        tags_label: "Այս խմբի թեգերը՝ "
-        parent_tag_label: "Մայր թեգ՝ "
-        parent_tag_description: "Այս խմբի թեգերը չեն կարող օգտագործվել, քանի դեռ մայր թեգը առկա չէ:"
         one_per_topic_label: "Սահմանափակել այս խմբի յուրաքանչյուր թեման մեկ թեգով:"
         new_name: "Նոր Թեգի Խումբ"
-        name_placeholder: "Տեգի Խմբի Անունը"
         save: "Պահպանել"
         delete: "Ջնջել"
         confirm_delete: "Դուք համոզվա՞ծ եք, որ ցանկանում եք ջնջել այս թեգի խումբը:"
@@ -2907,6 +2896,13 @@ hy:
       remaining: "%{remaining}-ը մնում է"
       options:
         custom: "Մասնավոր"
+    trust_levels:
+      names:
+        newuser: "նոր օգտատեր"
+        basic: "հիմնական օգտատեր"
+        member: "անդամ"
+        regular: "սովորական"
+        leader: "առաջնորդ"
   admin_js:
     type_to_filter: "գրեք ֆիլտրելու համար..."
     admin:
@@ -3024,8 +3020,6 @@ hy:
             available: "Խմբի անունը հասանելի է"
             not_available: "Խմբի անունը հասանելի չէ"
             blank: "Խմբի անունը չի կարող դատարկ լինել"
-        add_members:
-          as_owner: "Սահմանել օգտատիրոջ(երի) որպես այս խմբի սեփականատեր(եր)"
         manage:
           interaction:
             email: Էլ. հասցե
@@ -3750,6 +3744,7 @@ hy:
           require_approval: "Պահանջել Հաստատում"
           flag: "Դրոշակավորել"
           replace: "Փոխարինել"
+          silence: "Լռեցնել"
         action_descriptions:
           block: "Արգելել այս բառերը պարունակող գրառումների հրապարակումը: Օգտատերը կտեսնի սխալի հաղորդագրություն, երբ փորձի կատարել գրառում:"
           censor: "Թույլատրել այս բառերը պարունակող գրառումները, սակայն փոխարինել դրանք սիմվոլներով, որոնք կթաքցնեն գրաքննության ենթարկված բառերը:"
@@ -3757,6 +3752,7 @@ hy:
           flag: "Թույլատրել այս բառերը պարունակող գրառումները, սակայն դրոշակավորել դրանք որպես անհամապատասխան, որպեսզի մոդերատորները կարողանան վերանայել դրանք:"
         form:
           placeholder_regexp: "regular expression"
+          link_placeholder: "https://example.com"
           add: "Ավելացնել"
           success: "Հաջողություն"
           exists: "Արդեն գոյություն ունի"

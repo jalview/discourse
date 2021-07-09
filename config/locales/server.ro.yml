@@ -335,16 +335,8 @@ ro:
       topic_exists_no_oldest: "Nu poți șterge categoria fiindcă numărul subiectelor este de %{count}."
     uncategorized_description: "Subiecte care nu au nevoie de o categorie, sau care nu se potrivesc în nicio categorie deja existentă."
   trust_levels:
-    newuser:
-      title: "utilizator nou"
-    basic:
-      title: "utilizator simplu"
-    member:
-      title: "membru"
-    regular:
-      title: "utilizator frecvent"
-    leader:
-      title: "lider"
+    admin: "Admin"
+    staff: "Membrii echipei"
     change_failed_explanation: "Ai încercat să retrogradezi utilizatorul %{user_name} la nivelul '%{new_trust_level}'. Însă nivelul este deja '%{current_trust_level}'. %{user_name} va rămâne la '%{current_trust_level}' - dacă dorești să retrogradezi utilizatorul, trebuie să îi blochezi întâi nivelul de încredere."
   rate_limiter:
     by_type:
@@ -861,7 +853,6 @@ ro:
     traditional_markdown_linebreaks: "Folosește întreruperi de rând tradiționale în Markdown, ceea ce necesită două spații pentru un capăt de rând. "
     post_undo_action_window_mins: "Numărul de minute în care utilizatorii pot anula acțiunile recente asupra unei postări (aprecieri, marcări cu marcaje de avertizare, etc)."
     must_approve_users: "Personalul trebuie să aprobe toate conturile utilizatorilor noi înainte ca ei să aibă aces în site."
-    pending_users_reminder_delay: "Notifică moderatorii dacă noii utilizatori sunt în așteptarea aprobării de mai mult de atâtea ore. Setează la -1 pentru a dezactiva notificările."
     maximum_session_age: "Utilizatorul va rămâne autentificat pentru n ore de la ultima vizită"
     cors_origins: "Origini permise pentru interogările inter-origini (CORS). Fiecare origine trebuie să includă http:// sau https://. Variabila env DISCOURSE_ENABLE_CORS trebuie setată pe true pentru a activa CORS."
     use_admin_ip_allowlist: "Adminii se pot autentifica numai dacă au o adresă IP definită în lista de IP-uri verificate (Admin > Rapoarte > IP-uri verificate) "
@@ -2039,8 +2030,6 @@ ro:
         description: "Restabilește postarea pentru astfel încât toți utilizatorii să o poată vedea."
       agree_and_hide:
         title: "Ascunde postarea"
-      delete_spammer:
-        title: "Șterge spammer"
       delete_single:
         title: "Șterge"
       disagree_and_restore:
@@ -2056,8 +2045,6 @@ ro:
           title: "Şterge utilizatorul"
       reject:
         title: "Respingere"
-      delete_user:
-        title: "Şterge utilizatorul"
   activemodel:
     errors:
       <<: *errors

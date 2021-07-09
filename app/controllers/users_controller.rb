@@ -112,6 +112,7 @@ class UsersController < ApplicationController
                                               :user_profile,
                                               :card_background_upload,
                                               :primary_group,
+                                              :flair_group,
                                               :primary_email
                                             )
 
@@ -308,7 +309,9 @@ class UsersController < ApplicationController
     guardian.ensure_can_edit!(user)
 
     report = TopicTrackingState.report(user)
-    serializer = ActiveModel::ArraySerializer.new(report, each_serializer: TopicTrackingStateSerializer)
+    serializer = ActiveModel::ArraySerializer.new(
+      report, each_serializer: TopicTrackingStateSerializer, scope: guardian
+    )
 
     render json: MultiJson.dump(serializer)
   end
@@ -709,6 +712,7 @@ class UsersController < ApplicationController
   def password_reset_show
     expires_now
     token = params[:token]
+
     password_reset_find_user(token, committing_change: false)
 
     if !@error
@@ -1074,6 +1078,7 @@ class UsersController < ApplicationController
      groups: @groups
     }
 
+    options[:include_staged_users] = !!ActiveModel::Type::Boolean.new.cast(params[:include_staged_users])
     options[:topic_id] = topic_id if topic_id
     options[:category_id] = category_id if category_id
 
@@ -1628,6 +1633,7 @@ class UsersController < ApplicationController
       :profile_background_upload_url,
       :card_background_upload_url,
       :primary_group_id,
+      :flair_group_id,
       :featured_topic_id
     ]
 

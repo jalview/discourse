@@ -101,7 +101,6 @@ da:
       maximum_staged_user_per_email_reached: "Maksimalt antal af brugere oprettet pr. email."
       no_subject: "(intet emne)"
       no_body: "(intet meddelelsesindhold)"
-      missing_attachment: "(Vedhæftning %{filename} mangler)"
       errors:
         empty_email_error: "Dette sker når den rå email der modtages er tom."
         no_message_id_error: "Dette sker når emailen ikke har nogen 'Message-Id' header."
@@ -252,9 +251,6 @@ da:
     not_enough_space_on_disk: "Der er ikke nok diskplads til at overføre denne backup."
     invalid_filename: "Backup filnavnet indeholder ugyldige tegn. Gyldige tegn er a-z 0-9 . - _."
     file_exists: "Den fil, du prøver at overføre, findes allerede."
-    location:
-      local: "Lokal"
-      s3: "Amazon S3"
   invalid_params: "Du leverede ugyldige parametre til anmodningen: %{message}"
   not_logged_in: "Du skal logge på for at kunne dette."
   not_found: "Den anmodede URL eller ressource kunne ikke findes."
@@ -269,7 +265,6 @@ da:
   invalid_whisper_access: "Enten er hvisken ikke aktiveret, eller du har ikke adgang til at oprette hviskende indlæg"
   not_in_group:
     title_topic: "Du skal anmode om medlemskab af gruppen '%{group}' for at se dette emne."
-    title_category: "Du skal være i en gruppe for at se denne kategori."
     request_membership: "Anmod om medlemskab"
     join_group: "Bliv medlem af gruppen"
   deleted_topic: "Ups! Dette emne er blevet slettet og er ikke længere tilgængeligt."
@@ -380,6 +375,7 @@ da:
   too_late_to_edit: "Dette indlæg blev oprettet for længe siden og kan ikke længere redigeres eller slettes."
   edit_conflict: "Dette indlæg blev redigeret af en anden bruger, og dine ændringer kan ikke længere blive gemt."
   revert_version_same: "Den nuværende udgave er den samme udgave som den du prøver at vende tilbage til."
+  cannot_edit_on_slow_mode: "Dette emne er i langsom tilstand. For at tilskynde til tankevækkende, overvejet diskussion er redigering af gamle indlæg i dette emne i øjeblikket ikke tilladt i langsom tilstand."
   excerpt_image: "billede"
   bookmarks:
     errors:
@@ -648,16 +644,8 @@ da:
       topic_exists_no_oldest: "Kan ikke slette denne kategori fordi antallet af emner er %{count}"
     uncategorized_description: "Emner der ikke behøver kategori, eller ikke passer i eksisterende kategori."
   trust_levels:
-    newuser:
-      title: "ny bruger"
-    basic:
-      title: "basis-bruger"
-    member:
-      title: "bruger"
-    regular:
-      title: "Trofast"
-    leader:
-      title: "Veteran"
+    admin: "Admin"
+    staff: "Personale"
     change_failed_explanation: "Du har forsøgt at degradere %{user_name} til '%{new_trust_level}'. Imidlertid er deres niveau af tillid allerede '%{current_trust_level}'. %{user_name} vil forblive'%{current_trust_level}' - hvis du ønsker at degradere brugeren, skal du først låse brugerens tillids niveau / Trust Level"
   post:
     image_placeholder:
@@ -1435,7 +1423,6 @@ da:
     must_approve_users: "Personalet skal godkende alle nye brugerkonti, før de får adgang til webstedet."
     invite_code: "Brugeren skal skrive denne kode for at kunne registrere en konto, ignoreret når den er tom (ingen forskel på store og små bogstaver)"
     approve_suspect_users: "Føj mistænkelige brugere til gennemgangskøen. Mistænkelige brugere har indtastet en bio/et websted, men har ingen læseaktivitet."
-    pending_users_reminder_delay: "Underret moderatorer hvis nye brugere har ventet på godkendelse i længere end så mange timer. Skriv -1 for at deaktivere notifikationer."
     persistent_sessions: "Brugere vil forblive logget ind, når webbrowseren er lukket"
     maximum_session_age: "Bruger vil forblive logget in for n hours siden sidste besøg"
     ga_version: "Version af Google Universal Analytics der skal benyttes: v3 (analytics.js), v4 (gtag)"
@@ -1621,7 +1608,6 @@ da:
     max_new_accounts_per_registration_ip: "Hvis der allerede er (n) kontoer med tillidsniveau 0 fra en IP (og ingen er en del af hjælperteamet eller på TL2 eller højere), så accepteres nye kontooprettelser fra denne IP ikke."
     num_flaggers_to_close_topic: "Minimum antal anmeldelser fra unikke brugere, der skal til for automatisk at sætte et emne på pause for ingriben"
     auto_respond_to_flag_actions: "Aktivér automatisk besvarelse, når en anmeldelse fjernes."
-    reviewable_low_priority_threshold: "Prioritetsfilteret skjuler anmeldelser, der ikke opfylder denne score, medmindre filteret '(enhver)' bruges."
     high_trust_flaggers_auto_hide_posts: "Nye brugerindlæg skjules automatisk efter at være blevet anmeldt som spam af en TL3+ bruger"
     cooldown_hours_until_reflag: "Hvor lang tid brugerne skal vente, indtil de kan genanmelde et indlæg"
     reply_by_email_enabled: "Aktivér muligheden for at svare til emner via email."
@@ -1697,6 +1683,7 @@ da:
     embed_username_required: "Brugernavnet til oprettelse af emne er påkrævet."
     notify_about_flags_after: "Hvis der er anmeldelser, der ikke er blevet håndteret efter mange timer, skal der sendes en personlig besked til moderatorer. Sæt til 0 for at deaktivere."
     delete_drafts_older_than_n_days: "Slet kladder, der er ældre end (n) dage."
+    delete_merged_stub_topics_after_days: "Antal dage, der skal ventes, før automatisk sletning af fuldt sammenflettede stub emner. Sæt til 0 for aldrig at slette stub emner."
     enable_emoji: "Aktivér humørikon"
     enable_emoji_shortcuts: "Almindelig smiley-tekst såsom :) :p :( vil blive konverteret til humørikoner"
     emoji_set: "Hvordan kunne du tænke dig diT humørikon?"
@@ -2959,6 +2946,10 @@ da:
     see_more: "Flere"
     search_title: "Søg på dette websted"
     search_button: "Søg"
+  login_required:
+    welcome_message: |
+      ## [Velkommen til %{title}](#welcome)
+      En konto er påkrævet. Opret venligst en konto eller log ind for at fortsætte.
   deleted: "slettet"
   image: "billede"
   upload:
@@ -3302,6 +3293,7 @@ da:
       long_description: |
         Dette emblem tildeles første gang, du redigerer et af dine indlæg. Selvom du ikke vil være i stand til at redigere dine indlæg for evigt, opfordres du til at redigere dine indlæg — hvis du kan forbedre formateringen, rette små fejl eller tilføje noget du glemte, da du oprindeligt gemte. Rediger for at gøre dine indlæg endnu bedre!
     wiki_editor:
+      name: Wiki Redaktør
       description: Første wiki redigering
       long_description: |
         Dettee emblem tildeles første gang du redigerer et wiki-indlæg.
@@ -3778,16 +3770,19 @@ da:
       agree_and_hide:
         title: "Skjul Indlæg"
         description: "Skjul dette indlæg og send automatisk brugeren en meddelelse, der opfordrer dem til at redigere det."
-      delete_spammer:
-        title: "Slet Spammer"
-        description: "Fjern brugeren og alle deres indlæg og emner."
-        confirm: "Er du sikker på, at du vil slette alle brugerens indlæg, emner og blokere deres IP-adresse og e-mailadresser?"
       delete_single:
         title: "Slet"
       delete:
         title: "Slet..."
       delete_and_ignore:
         title: "Slet Indlæg og Ignorer"
+      delete_and_agree:
+        title: "Slet Indlæg og Accepter"
+        description: "Slet indlæg; Hvis det er første indlæg, skal emnet også slettes"
+      delete_and_agree_replies:
+        title: "Slet Indlæg + Svar og Accepter"
+        description: "Slet indlæg og alle dets svar Hvis det er første indlæg, så slet også emnet"
+        confirm: "Er du sikker på, at du også vil slette svarene på indlægget?"
       disagree_and_restore:
         description: "Gendan indlægget, så alle brugere kan se det."
       disagree:
@@ -3813,8 +3808,6 @@ da:
       reject:
         title: "Afvis"
       delete_user:
-        title: "Slet Bruger"
-        confirm: "Er du sikker på, at du vil slette denne bruger? Dette vil fjerne alle deres indlæg og blokere deres e-mail og IP-adresse."
         reason: "Slettet via gennemgangskø"
   email_style:
     html_missing_placeholder: "HTML-skabelonen skal indeholde %{placeholder}"

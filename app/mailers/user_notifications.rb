@@ -520,9 +520,11 @@ class UserNotifications < ActionMailer::Base
       show_tags_in_subject = tags.any? ? tags.join(" ") : nil
     end
 
+    group = post.topic.allowed_groups&.first
+
     if post.topic.private_message?
       subject_pm =
-        if opts[:show_group_in_subject] && group = post.topic.allowed_groups&.first
+        if opts[:show_group_in_subject] && group.present?
           if group.full_name
             "[#{group.full_name}] "
           else
@@ -616,7 +618,7 @@ class UserNotifications < ActionMailer::Base
         message = email_post_markdown(post) + (reached_limit ? "\n\n#{I18n.t "user_notifications.reached_limit", count: SiteSetting.max_emails_per_day_per_user}" : "")
       end
 
-      first_footer_classes = "hilight"
+      first_footer_classes = "highlight"
       if (allow_reply_by_email && user.staged) || (user.suspended? || user.staged?)
         first_footer_classes = ""
       end
@@ -630,7 +632,8 @@ class UserNotifications < ActionMailer::Base
                     post: post,
                     in_reply_to_post: in_reply_to_post,
                     classes: Rtl.new(user).css_class,
-                    first_footer_classes: first_footer_classes
+                    first_footer_classes: first_footer_classes,
+                    reply_above_line: false
           }
         )
       end

@@ -194,7 +194,6 @@ el:
     submit: "Υποβολή"
     generic_error: "Λυπάμαι, προέκυψε κάποιο σφάλμα."
     generic_error_with_reason: "Προέκυψε ένα σφάλμα: %{error}"
-    go_ahead: "Προχωρήστε"
     sign_up: "Εγγραφή"
     log_in: "Σύνδεση"
     age: "Ηλικία"
@@ -223,7 +222,6 @@ el:
     x_more:
       one: "%{count} Περισσότερο"
       other: "%{count} Περισσότερο"
-    less: "Λιγότερα"
     never: "ποτέ"
     every_30_minutes: "κάθε 30 λεπτά"
     every_hour: "κάθε ώρα"
@@ -232,7 +230,6 @@ el:
     every_month: "κάθε μήνα"
     every_six_months: "κάθε έξι μήνες"
     max_of_count: "μέγιστο %{count}"
-    alternation: "ή"
     character_count:
       one: "%{count} χαρακτήρα"
       other: "%{count} χαρακτήρες"
@@ -264,7 +261,6 @@ el:
       help:
         bookmark: "Πάτήστε εδώ για να μπει σελιδοδείκτης στην πρώτη ανάρτηση του θέματος."
         unbookmark: "Πατήστε εδώ για να αφαιρεθούν όλοι οι σελιδοδείκτες από αυτό το θέμα."
-        unbookmark_with_reminder: "Κάντε κλικ για να αφαιρέσετε όλους τους σελιδοδείκτες και τις υπενθυμίσεις από αυτό το θέμα. Έχετε ορίσει μια υπενθύμιση στις %{reminder_at} για αυτό το θέμα."
     bookmarks:
       created: "Έχετε προσθέσει σελιδοδείκτη σε αυτήν την ανάρτηση. %{name}"
       not_bookmarked: "προσθέστε σελιδοδείκτη σε αυτήν την ανάρτηση"
@@ -507,8 +503,8 @@ el:
       later_today: "Αργότερα σήμερα"
       next_business_day: "Επόμενη εργάσιμη ημέρα"
       tomorrow: "Αύριο"
-      next_week: "Την άλλη εβδομάδα"
       later_this_week: "Αργότερα αυτήν την εβδομάδα"
+      this_weekend: "Αυτό το Σαββατοκύριακο"
       start_of_next_business_week: "Τη Δευτέρα"
       start_of_next_business_week_alt: "Την επόμενη Δευτέρα"
       next_month: "Τον άλλο μήνα"
@@ -549,6 +545,11 @@ el:
       total_rows:
         one: "%{count} χειριστής"
         other: "%{count} χρήστες"
+      edit_columns:
+        save: "Αποθήκευση"
+        reset_to_default: "Επαναφορά στο προεπιλεγμένο"
+      group:
+        all: "όλες οι ομάδες"
     group_histories:
       actions:
         change_group_setting: "Αλλαγή ρυθμίσεων ομάδας"
@@ -560,11 +561,6 @@ el:
       member_added: "Προστέθηκε"
       member_requested: "Ζητήθηκε στις"
       add_members:
-        title: "Προσθήκη μελών στο %{group_name}"
-        description: "Μπορείτε επίσης να επικολλήσετε σε μια λίστα διαχωρισμένη με κόμμα."
-        usernames_or_emails:
-          title: "Εισαγάγετε ονόματα χρηστών ή διευθύνσεις email"
-          input_placeholder: "Ονόματα χρηστών ή email"
         notify_users: "Ειδοποίηση χρηστών"
       requests:
         title: "Αιτήματα"
@@ -579,7 +575,7 @@ el:
         title: "Διαχειριστείτε"
         name: "Όνομα"
         full_name: "Πλήρες Όνομα"
-        add_members: "Προσθήκη Μελών"
+        invite_members: "Πρόσκληση"
         delete_member_confirm: "Να αφαιρεθεί ο/η '%{username}' από την ομάδα '%{group}' ;"
         profile:
           title: Προφίλ
@@ -590,6 +586,7 @@ el:
         email:
           title: "Διεύθυνση Email"
           status: "%{old_emails} / %{total_emails} συγχρονισμένα emails μέσω IMAP."
+          last_updated_by: "από"
           credentials:
             title: "Διαπιστευτήρια"
             smtp_server: "SMTP Server"
@@ -605,7 +602,6 @@ el:
           mailboxes:
             synchronized: "Συγχρονισμένο γραμματοκιβώτιο"
             none_found: "Δε βρέθηκαν γραμματοκιβώτια σε αυτόν τον λογαριασμό email."
-            disabled: "απενεργοποιημένα"
         membership:
           title: Συνδρομή
           access: Πρόσβαση
@@ -2035,7 +2031,6 @@ el:
       back_to_list: "Επιστροφή στη Λίστα Νημάτων"
       options: "Ρυθμίσεις Νήματος"
       show_links: "εμφάνιση συνδέσμων εντός του νήματος"
-      toggle_information: "εναλλαγή λεπτομερειών νήματος"
       read_more_in_category: "Θέλεις να διαβάσεις περισσότερα; Βρες άλλα νήματα στο %{catLink} ή %{latestLink}."
       read_more: "Θέλεις να διαβασεις περισσότερα; %{catLink} ή %{latestLink}."
       unread_indicator: "Κανένα μέλος δεν έχει διαβάσει ακόμη την τελευταία ανάρτηση αυτού του θέματος."
@@ -2902,7 +2897,6 @@ el:
         show_incoming_updated_topics: "%{shortcut} Εμφάνιση ενημερωμένων νημάτων"
         search: "%{shortcut} Αναζήτηση"
         help: "%{shortcut} Εμφάνισε βοήθειας πληκτρολογίου"
-        dismiss_new_posts: "%{shortcut} Απόρριψη Νέων/Αναρτήσεων"
         dismiss_topics: "%{shortcut} Απόρριψη Νημάτων"
         log_out: "%{shortcut} Αποσύνδεση"
       composing:
@@ -2989,7 +2983,6 @@ el:
       tags: "Ετικέτες"
       choose_for_topic: "προαιρετικές ετικέτες"
       info: "Πληροφορίες"
-      default_info: "Αυτή η ετικέτα δεν περιορίζεται σε καμία κατηγορία και δεν έχει συνώνυμα."
       category_restricted: "Αυτή η ετικέτα περιορίζεται σε κατηγορίες στις οποίες δεν έχετε άδεια πρόσβασης."
       synonyms: "Συνώνυμα"
       synonyms_description: "Όταν χρησιμοποιούνται οι ακόλουθες ετικέτες, θα αντικατασταθούν με <b>%{base_tag_name}</b>."
@@ -3060,14 +3053,9 @@ el:
           description: "Δε θα ειδοποιηθείτε για τίποτα σχετικά με νέα θέματα με αυτήν την ετικέτα και δε θα εμφανίζονται στην καρτέλα μη αναγνωσμένων σας."
       groups:
         title: "Ομάδες Ετικετών"
-        about: "Πρόσθεσε ετικέτες σε ομάδες για να τις διαχειριστείς με περισσότερη ευκολία."
         new: "Νέα Ομάδα"
-        tags_label: "Ετικέτες σε αυτή την ομάδα:"
-        parent_tag_label: "Μητρική ετικέτα:"
-        parent_tag_description: "Οι ετικέτες από αυτή την ομάδα δεν μπορούν να χρησιμοποιηθούν αν δεν είναι παρούσα η μητρική ετικέτα."
         one_per_topic_label: "Περιορισμός μιας ετικέτας για κάθε νήμα από αυτή την ομάδα"
         new_name: "Νέα Ομάδα Ετικετών"
-        name_placeholder: "Όνομα ομάδας ετικετών"
         save: "Αποθήκευση"
         delete: "Διαγραφή"
         confirm_delete: "Είσαι βέβαιος πως θέλεις να διαγράψεις αυτή την ομάδα ετικετών;"
@@ -3105,6 +3093,13 @@ el:
         two_hours: "2 ώρες"
         tomorrow: "Μέχρι αύριο"
         custom: "Προσαρμοσμένο"
+    trust_levels:
+      names:
+        newuser: "νέος χρήστης"
+        basic: "αρχάριος"
+        member: "μέλος"
+        regular: "τακτικός"
+        leader: "αρχηγός"
   admin_js:
     type_to_filter: "γράψε εδώ για φιλτράρισμα..."
     admin:
@@ -3222,8 +3217,6 @@ el:
             available: "Το όνομα ομάδας είναι διαθέσιμο"
             not_available: "Το όνομα ομάδας δεν είναι διαθέσιμο"
             blank: "Το όνομα ομάδας δε μπορεί να είναι κενό"
-        add_members:
-          as_owner: "Ορισμός χρηστών ως ιδιοκτητών αυτής της ομάδας"
         manage:
           interaction:
             email: Διεύθυνση Email
@@ -3984,6 +3977,8 @@ el:
           require_approval: "Απαιτεί Έγκριση"
           flag: "Σήμανση"
           replace: "Αντικατάσταση"
+          silence: "Σίγαση"
+          link: "Σύνδεσμος"
         action_descriptions:
           block: "Αποτροπή της καταχώρησης αναρτήσεων που περιέχουν αυτές τις λέξεις. Ο χρήστης θα ενημερωθεί με μήνυμα λάθους όταν προσπαθήσει να καταχωρήσει την αναρτηση."
           censor: "Επίτρεψε τις αναρτήσεις με αυτές τις λέξεις, αλλά αντικατέστησε τις λογοκριμένες λέξεις με άλλους χαρακτήρες."
@@ -3991,6 +3986,8 @@ el:
           flag: "Επίτρεψε τις αναρτήσεις που περιέχουν αυτές τις λέξεις, αλλά επισήμανέ τες ως ανάρμοστες για έλεγχο από συντονιστή."
         form:
           placeholder_regexp: "regular expression"
+          link_label: "Σύνδεσμος"
+          link_placeholder: "https://example.com"
           add: "Προσθήκη"
           success: "Επιτυχία"
           exists: "Υπάρχει ήδη"

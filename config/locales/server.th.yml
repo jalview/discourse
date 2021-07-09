@@ -110,10 +110,8 @@ th:
   category:
     topic_prefix: "เกี่ยวกับหมวด %{category}"
   trust_levels:
-    member:
-      title: "สมาชิก"
-    regular:
-      title: "ทั่วไป"
+    admin: "ผู้ดูแลระบบ"
+    staff: "ทีมงาน"
   rate_limiter:
     hours:
       other: "%{count} ชั่วโมง"
@@ -500,8 +498,6 @@ th:
       medium: "ปานกลาง"
       high: "สูง"
     actions:
-      delete_spammer:
-        title: "ลบสแปมเมอร์"
       delete_single:
         title: "ลบ"
       disagree:
@@ -515,8 +511,6 @@ th:
           title: "ลบผู้ใช้"
       reject:
         title: "ละทิ้ง"
-      delete_user:
-        title: "ลบผู้ใช้"
   activemodel:
     errors:
       <<: *errors

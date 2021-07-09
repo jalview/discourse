@@ -215,7 +215,6 @@ bs_BA:
     submit: "Potvrdi"
     generic_error: "Uff, došlo je do greške."
     generic_error_with_reason: "Došlo je do greške: %{error}"
-    go_ahead: "Idi naprijed"
     sign_up: "Učlani se"
     log_in: "Prijavi se"
     age: "Godište"
@@ -246,7 +245,6 @@ bs_BA:
       one: "Još %{count}"
       few: "Još %{count}"
       other: "Još %{count}"
-    less: "Manje"
     never: "nikada"
     every_30_minutes: "svakih 30 minuta"
     every_hour: "svaki sat"
@@ -255,7 +253,6 @@ bs_BA:
     every_month: "svaki mjesec"
     every_six_months: "svakih šest mjeseci"
     max_of_count: "maksimalno %{count}"
-    alternation: "ili"
     character_count:
       one: "%{count} karakter"
       few: "%{count} karaktera"
@@ -288,7 +285,6 @@ bs_BA:
       help:
         bookmark: "Klikni kako bi dodao zabilješku na prvu objavu u temi"
         unbookmark: "Klikni za uklanjanje svih zabilješki sa ove teme"
-        unbookmark_with_reminder: "Kliknite da biste uklonili sve zabilješke i podsjetnike iz ove teme. Za ovu temu imate podsjetnik %{reminder_at}."
     bookmarks:
       created: "Zabilježili ste ovu objavu. %{name}"
       not_bookmarked: "zabilježi objavu"
@@ -540,8 +536,8 @@ bs_BA:
       later_today: "Na kraju dana"
       next_business_day: "Sljedeći radni dan"
       tomorrow: "Sutra"
-      next_week: "Sljedeće sedmice"
       later_this_week: "Kasnije ove sedmice"
+      this_weekend: "Ovog vikenda"
       start_of_next_business_week: "Ponedjeljak"
       start_of_next_business_week_alt: "Sljedeći ponedjeljak"
       next_month: "Sljedeći mjesec"
@@ -583,6 +579,10 @@ bs_BA:
         one: "%{count} korisnik"
         few: "%{count} korisnika"
         other: "%{count} korisnika"
+      edit_columns:
+        save: "Sačuvaj"
+      group:
+        all: "sve grupe"
     group_histories:
       actions:
         change_group_setting: "Promijeni postavke grupe"
@@ -594,13 +594,6 @@ bs_BA:
       member_added: "Doodano"
       member_requested: "zatraženo na"
       add_members:
-        title: "Dodaj članove u %{group_name}"
-        description: "Također možete zalijepiti i kao listu/popis razdvojen zarezom."
-        usernames_or_emails:
-          title: "Unesite korisnička imena ili adrese e-pošte"
-          input_placeholder: "Korisnička imena ili e-adrese"
-        usernames:
-          input_placeholder: "Korisnička imena"
         notify_users: "Obavijesti korisnike"
       requests:
         title: "Zahtjevi"
@@ -615,7 +608,7 @@ bs_BA:
         title: "Uredi"
         name: "Ime"
         full_name: "Puno ime"
-        add_members: "Dodaj članove"
+        invite_members: "Invite"
         delete_member_confirm: "Ukloni '%{username}' iz grupe '%{group}'?"
         profile:
           title: Profil
@@ -626,6 +619,7 @@ bs_BA:
         email:
           title: "Email"
           status: "Sinkronizirano %{old_emails} / %{total_emails} e-pošte putem IMAP-a."
+          last_updated_by: "by"
           credentials:
             title: "Identifikacija"
             smtp_server: "SMTP Server"
@@ -641,7 +635,6 @@ bs_BA:
           mailboxes:
             synchronized: "Sinkronizirani poštanski sandučić"
             none_found: "Na ovom računu e-pošte nisu pronađeni poštanski sandučići."
-            disabled: "deaktiviran"
         membership:
           title: Članstvo
           access: Pristup
@@ -2051,7 +2044,6 @@ bs_BA:
       back_to_list: "Vrati se na Listu Tema"
       options: "Opcije Teme"
       show_links: "pokaži linkove unutar ove teme"
-      toggle_information: "uključi detalje teme"
       read_more_in_category: "Želite dalje čitati? Pregledajte druge teme u %{catLink} ili %{latestLink}."
       read_more: "Želite li dalje čitati? %{catLink} Ili %{latestLink}."
       browse_all_categories: Pregledaj sve kategorije
@@ -2890,7 +2882,6 @@ bs_BA:
         show_incoming_updated_topics: "%{shortcut} Pročitaj promjenje teme"
         search: "%{shortcut} Traži"
         help: "%{shortcut} Otvori pomoć za tastaturu"
-        dismiss_new_posts: "%{shortcut} Dismiss New/Posts"
         dismiss_topics: "%{shortcut} Dismiss Topics"
         log_out: "%{shortcut} Odjavi se"
       composing:
@@ -2981,7 +2972,6 @@ bs_BA:
       tags: "Oznake"
       choose_for_topic: "neobavezne oznake"
       info: "Informacija"
-      default_info: "Ovaj oznaka nije predodređena ni za jednu kategoriju i nema sinonime."
       category_restricted: "Ova oznaka je predodređena za kategorije na koje nemate pravo pristupa."
       synonyms: "Sinonimi"
       synonyms_description: "U slučaju da se sljedeće oznake koriste, iste će biti zamijenjene sa <b>%{base_tag_name}</b>."
@@ -3059,14 +3049,9 @@ bs_BA:
           description: "Nećete bit obavješteni bilo čime o ovoj temi sa ovom oznakom, i neće se pojavljivati na tabularu nepročitanih tema."
       groups:
         title: "Označite grupe"
-        about: "Dodajte oznake grupama da biste ih lakše upravljali."
         new: "Nova grupa "
-        tags_label: "Oznake u ovoj grupi:"
-        parent_tag_label: "Roditeljska oznaka:"
-        parent_tag_description: "Oznake iz ove grupe ne mogu se koristiti ako roditeljska oznaka nije prisutna."
         one_per_topic_label: "Ograničite jednu oznaku po temi iz ove grupe"
         new_name: "Nova Grupa Oznaka"
-        name_placeholder: "Ime grupe oznaka"
         save: "Sačuvaj"
         delete: "Delete"
         confirm_delete: "Jeste li sigurni da želite izbrisati ovu grupu oznaka?"
@@ -3098,6 +3083,13 @@ bs_BA:
       remaining: "%{remaining} preostalo"
       options:
         custom: "Custom"
+    trust_levels:
+      names:
+        newuser: "novi korisnik"
+        basic: "korisnik"
+        member: "član"
+        regular: "pokretač"
+        leader: "vođa"
   admin_js:
     type_to_filter: "kucaj da sortiraš..."
     admin:
@@ -3216,8 +3208,6 @@ bs_BA:
             available: "Ime grupe je dostupno"
             not_available: "Naziv grupe nije dostupan"
             blank: "Naziv grupe ne može biti prazan"
-        add_members:
-          as_owner: "Postavite korisnika kao vlasnike ove grupe"
         manage:
           interaction:
             email: Email
@@ -3915,6 +3905,8 @@ bs_BA:
           require_approval: "Zahtjeva Dozvolu"
           flag: "Prijava"
           replace: "Zamijeni"
+          silence: "Stišaj"
+          link: "Link"
         action_descriptions:
           block: "Spriječite postavljanje postova koji sadrže ove riječi. Korisnik će vidjeti poruku o pogrešci kada pokuša da pošalje svoj post."
           censor: "Dopustite poruke koje sadrže te riječi, ali ih zamijenite znakovima koji kriju cenzurirane riječi."
@@ -3922,6 +3914,8 @@ bs_BA:
           flag: "Dozvoli objave koje sadrže ove riječi, ali prijavi ih kao neadekvatne kako bi ih moderatori mogli analizirati gledajući na kontekst i značenje"
         form:
           placeholder_regexp: "regularni izraz"
+          link_label: "Link"
+          link_placeholder: "https://example.com"
           add: "Dodaj"
           success: "Uspjeh"
           exists: "Već postoji"

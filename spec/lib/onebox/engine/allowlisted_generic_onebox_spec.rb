@@ -98,6 +98,7 @@ describe Onebox::Engine::AllowlistedGenericOnebox do
       before do
         stub_request(:get, mobile_url).to_return(status: 200, body: onebox_response('etsy_mobile'))
         stub_request(:get, canonical_url).to_return(status: 200, body: onebox_response('etsy'))
+        stub_request(:head, canonical_url).to_return(status: 200, body: "")
       end
 
       it 'fetches opengraph data and price from canonical link' do
@@ -142,6 +143,7 @@ describe Onebox::Engine::AllowlistedGenericOnebox do
         }
       )
       stub_request(:get, redirect_link).to_return(status: 200, body: onebox_response('dailymail'))
+      stub_request(:head, redirect_link).to_return(status: 200, body: "")
     end
 
     around do |example|
@@ -168,9 +170,10 @@ describe Onebox::Engine::AllowlistedGenericOnebox do
       before do
         stub_request(:get, "https://edition.cnn.com/2020/05/15/health/gallery/coronavirus-people-adopting-pets-photos/index.html")
           .to_return(status: 200, body: onebox_response('cnn'))
-
         stub_request(:get, "https://www.cnn.com/2020/05/15/health/gallery/coronavirus-people-adopting-pets-photos/index.html")
           .to_return(status: 200, body: onebox_response('cnn'))
+        stub_request(:head, "https://www.cnn.com/2020/05/15/health/gallery/coronavirus-people-adopting-pets-photos/index.html")
+          .to_return(status: 200, body: "")
       end
 
       it 'shows basic onebox' do
@@ -179,6 +182,23 @@ describe Onebox::Engine::AllowlistedGenericOnebox do
         expect(onebox.to_html).to include("https://edition.cnn.com/2020/05/15/health/gallery/coronavirus-people-adopting-pets-photos/index.html")
         expect(onebox.to_html).to include("https://cdn.cnn.com/cnnnext/dam/assets/200427093451-10-coronavirus-people-adopting-pets-super-tease.jpg")
         expect(onebox.to_html).to include("People are fostering and adopting pets during the pandemic")
+      end
+    end
+  end
+
+  describe 'article html hosts' do
+    context 'returns article_html for hosts in article_html_hosts' do
+      before do
+        stub_request(:get, "https://www.imdb.com/title/tt0108002/")
+          .to_return(status: 200, body: onebox_response('imdb'))
+      end
+
+      it 'shows article onebox' do
+        onebox = described_class.new("https://www.imdb.com/title/tt0108002/")
+        expect(onebox.to_html).to include("https://www.imdb.com/title/tt0108002")
+        expect(onebox.to_html).to include("https://m.media-amazon.com/images/M/MV5BZGUzMDU1YmQtMzBkOS00MTNmLTg5ZDQtZjY5Njk4Njk2MmRlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_FMjpg_UX1000_.jpg")
+        expect(onebox.to_html).to include("Rudy (1993) - IMDb")
+        expect(onebox.to_html).to include("Rudy: Directed by David Anspaugh. With Sean Astin, Jon Favreau, Ned Beatty, Greta Lind. Rudy has always been told that he was too small to play college football.")
       end
     end
   end

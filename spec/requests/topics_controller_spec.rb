@@ -1010,7 +1010,6 @@ RSpec.describe TopicsController do
 
         topic_user.update!(
           last_read_post_number: 2,
-          highest_seen_post_number: 2
         )
 
         # ensure we have 2 notifications
@@ -1036,7 +1035,7 @@ RSpec.describe TopicsController do
         expect(PostTiming.where(topic: topic, user: user, post_number: 2).exists?).to eq(false)
         expect(PostTiming.where(topic: topic, user: user, post_number: 1).exists?).to eq(true)
 
-        expect(TopicUser.where(topic: topic, user: user, last_read_post_number: 1, highest_seen_post_number: 1).exists?).to eq(true)
+        expect(TopicUser.where(topic: topic, user: user, last_read_post_number: 1).exists?).to eq(true)
 
         user.user_stat.reload
         expect(user.user_stat.first_unread_at).to eq_time(topic.updated_at)
@@ -1051,7 +1050,7 @@ RSpec.describe TopicsController do
         delete "/t/#{topic.id}/timings.json?last=1"
 
         expect(PostTiming.where(topic: topic, user: user, post_number: 1).exists?).to eq(false)
-        expect(TopicUser.where(topic: topic, user: user, last_read_post_number: nil, highest_seen_post_number: nil).exists?).to eq(true)
+        expect(TopicUser.where(topic: topic, user: user, last_read_post_number: nil).exists?).to eq(true)
       end
     end
 
@@ -2157,6 +2156,28 @@ RSpec.describe TopicsController do
         get "/t/#{topic.slug}/#{topic.id}/#{post_number}.json"
         expect(response.status).to eq(200)
         expect(extract_post_stream).to eq(@post_ids[-2..-1])
+
+        TopicView.stubs(:chunk_size).returns(3)
+
+        get "/t/#{topic.slug}/#{topic.id}.json", params: { page: 1 }
+        expect(response.status).to eq(200)
+        expect(extract_post_stream).to eq(@post_ids[0..2])
+
+        get "/t/#{topic.slug}/#{topic.id}.json", params: { page: 2 }
+        expect(response.status).to eq(200)
+        expect(extract_post_stream).to eq(@post_ids[3..3])
+
+        get "/t/#{topic.slug}/#{topic.id}.json", params: { page: 3 }
+        expect(response.status).to eq(404)
+
+        TopicView.stubs(:chunk_size).returns(4)
+
+        get "/t/#{topic.slug}/#{topic.id}.json", params: { page: 1 }
+        expect(response.status).to eq(200)
+        expect(extract_post_stream).to eq(@post_ids[0..3])
+
+        get "/t/#{topic.slug}/#{topic.id}.json", params: { page: 2 }
+        expect(response.status).to eq(404)
       end
     end
 
@@ -2952,7 +2973,7 @@ RSpec.describe TopicsController do
         expect(user.user_stat.new_since.to_date).to eq(old_date.to_date)
       end
 
-      it "creates topic user records for each unread topic" do
+      it "creates dismissed topic user records for each new topic" do
         sign_in(user)
         user.user_stat.update_column(:new_since, 2.years.ago)
 
@@ -2960,11 +2981,57 @@ RSpec.describe TopicsController do
         CategoryUser.set_notification_level_for_category(user,
                                                      NotificationLevels.all[:tracking],
                                                      tracked_category.id)
-        tracked_topic = create_post.topic
-        tracked_topic.update!(category_id: tracked_category.id)
+        tracked_topic = create_post(category: tracked_category).topic
 
         create_post # This is a new post, but is not tracked so a record will not be created for it
-        expect { put "/topics/reset-new.json?tracked=true" }.to change { DismissedTopicUser.where(user_id: user.id).count }.by(1)
+        expect do
+          put "/topics/reset-new.json?tracked=true"
+        end.to change {
+          DismissedTopicUser.where(user_id: user.id, topic_id: tracked_topic.id).count
+        }.by(1)
+      end
+
+      it "creates dismissed topic user records if there are > 30 (default pagination) topics" do
+        sign_in(user)
+        tracked_category = Fabricate(:category)
+        CategoryUser.set_notification_level_for_category(user,
+                                                     NotificationLevels.all[:tracking],
+                                                     tracked_category.id)
+
+        topic_ids = []
+        5.times do
+          topic_ids << create_post(category: tracked_category).topic.id
+        end
+
+        expect do
+          stub_const(TopicQuery, "DEFAULT_PER_PAGE_COUNT", 2) do
+            put "/topics/reset-new.json?tracked=true"
+          end
+        end.to change {
+          DismissedTopicUser.where(user_id: user.id, topic_id: topic_ids).count
+        }.by(5)
+      end
+
+      it "creates dismissed topic user records if there are > 30 (default pagination) topics and topic_ids are provided" do
+        sign_in(user)
+        tracked_category = Fabricate(:category)
+        CategoryUser.set_notification_level_for_category(user,
+                                                     NotificationLevels.all[:tracking],
+                                                     tracked_category.id)
+
+        topic_ids = []
+        5.times do
+          topic_ids << create_post(category: tracked_category).topic.id
+        end
+        dismissing_topic_ids = topic_ids.sample(4)
+
+        expect do
+          stub_const(TopicQuery, "DEFAULT_PER_PAGE_COUNT", 2) do
+            put "/topics/reset-new.json?tracked=true", params: { topic_ids: dismissing_topic_ids }
+          end
+        end.to change {
+          DismissedTopicUser.where(user_id: user.id, topic_id: topic_ids).count
+        }.by(4)
       end
     end
 

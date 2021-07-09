@@ -174,7 +174,6 @@ vi:
     submit: "Gửi đi"
     generic_error: "Rất tiếc, đã có lỗi xảy ra."
     generic_error_with_reason: "Đã xảy ra lỗi: %{error}"
-    go_ahead: "Lên đầu"
     sign_up: "Đăng ký"
     log_in: "Đăng nhập"
     age: "Tuổi"
@@ -201,7 +200,6 @@ vi:
     more: "Nhiều hơn"
     x_more:
       other: "%{count} Thêm"
-    less: "Ít hơn"
     never: "không bao giờ"
     every_30_minutes: "mỗi 30 phút"
     every_hour: "mỗi giờ"
@@ -210,7 +208,6 @@ vi:
     every_month: "hàng tháng"
     every_six_months: "mỗi sáu tháng"
     max_of_count: "tối đa trong %{count}"
-    alternation: "hoặc"
     character_count:
       other: "%{count} ký tự"
     related_messages:
@@ -241,7 +238,6 @@ vi:
       help:
         bookmark: "Chọn bài viết đầu tiên của chủ đề cho vào dấu trang"
         unbookmark: "Chọn để xoá toàn bộ dấu trang trong chủ đề này"
-        unbookmark_with_reminder: "Nhấp để xóa tất cả dấu trang và lời nhắc trong chủ đề này. Bạn có lời nhắc đặt %{reminder_at} cho chủ đề này."
     bookmarks:
       created: "Bạn đã đánh dấu bài đăng này. %{name}"
       not_bookmarked: "đánh dấu bài viết này"
@@ -356,7 +352,7 @@ vi:
       settings:
         saved: "Lưu trữ"
         save_changes: "Lưu thay đổi"
-        title: "Xác lập"
+        title: "Cài đặt"
         priorities:
           title: "Ưu tiên xem lại"
       moderation_history: "Lịch sử kiểm duyệt"
@@ -479,9 +475,9 @@ vi:
       later_today: "Sau ngày hôm nay"
       next_business_day: "Ngày làm việc tiếp theo"
       tomorrow: "Ngày mai"
-      next_week: "Tuần tới"
       post_local_date: "Ngày trong bài"
       later_this_week: "Cuối tuần này"
+      this_weekend: "Cuối tuần này"
       start_of_next_business_week: "Thứ hai"
       start_of_next_business_week_alt: "Thứ hai tới"
       next_month: "Tháng t"
@@ -521,6 +517,11 @@ vi:
       last_updated: "Cập nhật lần cuối:"
       total_rows:
         other: "%{count} người dùng"
+      edit_columns:
+        save: "Lưu"
+        reset_to_default: "Đặt lại về mặc định"
+      group:
+        all: "các nhóm"
     group_histories:
       actions:
         change_group_setting: "Đổi cài đặt nhóm"
@@ -532,13 +533,6 @@ vi:
       member_added: "Đã thêm"
       member_requested: "Yêu cầu tại"
       add_members:
-        title: "Thêm thành viên vào %{group_name}"
-        description: "Bạn cũng có thể dán vào danh sách được phân tách bằng dấu phẩy."
-        usernames_or_emails:
-          title: "Nhập tên người dùng hoặc địa chỉ email"
-          input_placeholder: "Tên người dùng hoặc email"
-        usernames:
-          input_placeholder: "Tên người dùng"
         notify_users: "Thông báo cho người dùng"
       requests:
         title: "Những yêu cầu"
@@ -553,7 +547,7 @@ vi:
         title: "Quản lý"
         name: "Tên"
         full_name: "Tên đầy đủ"
-        add_members: "Thêm thành viên"
+        invite_members: "Mời"
         delete_member_confirm: "Xóa %{username}ra khỏi nhóm %{group}?"
         profile:
           title: Hồ sơ
@@ -564,6 +558,8 @@ vi:
         email:
           title: "Email"
           status: "Đồng bộ %{old_emails} / %{total_emails} email qua IMAP."
+          save_settings: "Lưu các cài đặt"
+          last_updated_by: "bởi"
           credentials:
             title: "Thông tin đăng nhập"
             smtp_server: "Máy chủ SMTP"
@@ -575,11 +571,10 @@ vi:
             username: "Tên đăng nhập"
             password: "Mật khẩu"
           settings:
-            title: "Xác lập"
+            title: "Cài đặt"
           mailboxes:
             synchronized: "Hộp thư được đồng bộ hóa"
             none_found: "Không tìm thấy hộp thư nào trong tài khoản email này."
-            disabled: "vô hiệu hóa"
         membership:
           title: Thành viên
           access: Truy cập
@@ -1277,6 +1272,10 @@ vi:
           error: "Đã xảy ra lỗi khi tạo liên kết Mời"
           max_redemptions_allowed_label: "Có bao nhiêu người được phép đăng ký bằng cách sử dụng liên kết này?"
           expires_at: "Khi nào thì liên kết mời này hết hạn?"
+        invite:
+          send_invite_email: "Lưu và Gửi Email"
+          save_invite: "Lưu lời mời"
+          invite_saved: "Đã lưu lời mời."
         bulk_invite:
           none: "Không có lời mời để hiển thị trên trang này."
           text: "Mời hàng loạt"
@@ -1969,7 +1968,6 @@ vi:
         new: "Bạn không có chủ đề mới nào."
         read: "Bạn vẫn chưa đọc bất kì chủ đề nào."
         posted: "Bạn vẫn chưa đăng bài trong bất kì một chủ đề nào"
-        ready_to_create: "Sẵn sàng để "
         latest: "Bạn đã xem tất cả!"
         bookmarks: "Bạn chưa chủ đề nào được đánh dấu."
         category: "Không có chủ đề nào trong %{category} ."
@@ -2041,7 +2039,6 @@ vi:
       back_to_list: "Quay lại danh sách chủ đề"
       options: "Các lựa chọn chủ đề"
       show_links: "Hiển thị liên kết trong chủ đề này"
-      toggle_information: "chuyển đổi các chi tiết chủ để"
       read_more_in_category: "Muốn đọc nữa? Xem qua các chủ đề khác trong %{catLink} hoặc %{latestLink}"
       read_more: "Muốn đọc nữa? %{catLink} hoặc %{latestLink}"
       unread_indicator: "Chưa có thành viên nào đọc bài cuối cùng của chủ đề này."
@@ -2049,7 +2046,6 @@ vi:
       browse_all_categories: Duyệt tất cả các hạng mục
       browse_all_tags: Duyệt qua tất cả các thẻ
       view_latest_topics: xem các chủ đề mới nhất
-      suggest_create_topic: bắt đầu một cuộc trò chuyện mới?
       jump_reply_up: nhảy đến những trả lời trước đó
       jump_reply_down: nhảy tới những trả lời sau đó
       deleted: "Chủ đề này đã bị xóa"
@@ -2428,7 +2424,10 @@ vi:
         attachment_upload_not_allowed_for_new_user: "Xin lỗi, tài khoản mới không thể tải lên đính kèm."
         attachment_download_requires_login: "Xin lỗi, bạn cần đăng nhập để tải về đính kèm."
       cancel_composer:
+        confirm: "Bạn muốn làm gì với bài đăng của mình?"
         discard: "Hủy bỏ"
+        save_draft: "Lưu bản nháp để sử dụng sau"
+        keep_editing: "Tiếp tục chỉnh sửa"
       via_email: "bài viết này đăng qua email"
       via_auto_generated_email: "bài đăng này đến qua một email được tạo tự động"
       whisper: "bài viết này là lời nhắn từ điều hành viên"
@@ -2781,6 +2780,12 @@ vi:
         title: "Chủ đề này là một tin nhắn cá nhân"
         help: "Chủ đề này là một tin nhắn cá nhân"
     posts: "Bài viết"
+    posts_likes_MF: |
+      Chủ đề này có {count, plural, one {# trả lời} other {# trả lời}} {ratio, select,
+        low {với tỷ lệ like trên post cao}
+        med {với tỷ lệ like trên post rất cao}
+        high {với tỷ lệ like trên post cực cao}
+        other {}}
     original_post: "Bài viết gốc"
     views: "Lượt xem"
     views_lowercase:
@@ -2915,7 +2920,6 @@ vi:
         show_incoming_updated_topics: "%{shortcut} Show updated topics"
         search: "%{shortcut} Tìm kiếm"
         help: "%{shortcut} Mở trợ giúp bàn phím"
-        dismiss_new_posts: "%{shortcut} Dismiss New/Posts"
         dismiss_topics: "%{shortcut} Bỏ qua bài viết"
         log_out: "%{shortcut} Đăng xuất"
       composing:
@@ -2998,7 +3002,6 @@ vi:
       tags: "Thẻ"
       choose_for_topic: "thẻ không bắt buộc"
       info: "Thông tin"
-      default_info: "Thẻ này không bị giới hạn đối với bất kỳ danh mục nào và không có từ đồng nghĩa."
       category_restricted: "Thẻ này bị hạn chế đối với các danh mục bạn không có quyền truy cập."
       synonyms: "Từ đồng nghĩa"
       synonyms_description: "Khi các thẻ sau được sử dụng, chúng sẽ được thay thế bằng <b>%{base_tag_name}</b>."
@@ -3062,20 +3065,16 @@ vi:
           description: "Bạn sẽ không được thông báo về bất cứ điều gì về các chủ đề mới với thẻ này và chúng sẽ không xuất hiện trên tab chưa đọc của bạn."
       groups:
         title: "Nhóm thẻ"
-        about: "Thêm thẻ vào nhóm để quản lý chúng dễ dàng hơn."
         new: "Nhóm mới"
-        tags_label: "Thẻ trong nhóm này:"
-        parent_tag_label: "Thẻ cha:"
-        parent_tag_description: "Không thể sử dụng các thẻ từ nhóm này trừ khi có thẻ mẹ."
         one_per_topic_label: "Giới hạn một thẻ cho mỗi chủ đề từ nhóm này"
         new_name: "Nhóm thẻ mới"
-        name_placeholder: "Tên nhóm thẻ"
         save: "Lưu"
         delete: "Xoá"
         confirm_delete: "Bạn có chắc chắn muốn xóa nhóm thẻ này không?"
         everyone_can_use: "Mọi người đều có thể sử dụng thẻ"
         usable_only_by_groups: "Tất cả mọi người đều có thể nhìn thấy thẻ, nhưng chỉ những nhóm sau mới có thể sử dụng chúng"
         visible_only_to_groups: "Thẻ chỉ hiển thị cho các nhóm sau"
+        cannot_save: "Không thể lưu nhóm thẻ. Đảm bảo rằng có ít nhất một thẻ hiện diện, tên nhóm thẻ không trống và một nhóm được chọn cho quyền đối với thẻ."
       topics:
         none:
           unread: "Bạn không có chủ đề chưa đọc này"
@@ -3109,6 +3108,13 @@ vi:
         two_hours: "2 tiếng"
         tomorrow: "Cho tới ngày mai"
         custom: "Tùy biến"
+    trust_levels:
+      names:
+        newuser: "thành viên mới"
+        basic: "thành viên cơ bản"
+        member: "thành viên"
+        regular: "thường xuyên"
+        leader: "người khởi xướng"
   admin_js:
     type_to_filter: "gõ để lọc..."
     admin:
@@ -3225,8 +3231,6 @@ vi:
             available: "Tên nhóm dùng được"
             not_available: "Tên nhóm đã sử dụng"
             blank: "Tên nhóm không thể trống"
-        add_members:
-          as_owner: "Đặt user làm chủ sở hữu của nhóm này"
         manage:
           interaction:
             email: Email
@@ -3554,7 +3558,7 @@ vi:
           common: "Chung"
           desktop: "Máy tính để bàn"
           mobile: "Điện thoại"
-          settings: "Xác lập"
+          settings: "Cài đặt"
           translations: "Bản dịch"
           extra_scss: "SCSS bổ sung"
           extra_files: "Các tệp bổ sung"
@@ -3981,7 +3985,15 @@ vi:
         actions:
           block: "Khóa"
           flag: "Gắn cờ"
+          silence: "Im lặng"
+          link: "Liên kết"
+        action_descriptions:
+          tag: "Tự động gắn thẻ các chủ đề dựa trên bài đăng đầu tiên"
+          silence: "Các bài đăng đầu tiên của người dùng có chứa những từ này sẽ yêu cầu nhân viên phê duyệt trước khi họ có thể được nhìn thấy và người dùng sẽ tự động bị tắt tiếng."
         form:
+          replace_label: "Sự thay thế"
+          link_label: "Liên kết"
+          link_placeholder: "https://example.com"
           add: "Thêm"
           exists: "Đã tồn tại"
         test:
@@ -4030,6 +4042,7 @@ vi:
         unsuspend_failed: "Có gì đó sai khi gỡ bỏ đình chỉ tài khoản này %{error}"
         suspend_duration: "Tài khoản này sẽ bị đình chỉ bao lâu?"
         suspend_reason_label: "Tại sao bạn bị đình chỉ? Dòng chữ <b>hiển thị cho tất cả mọi người</b> sẽ hiển thị trên trang hồ sơ tài khoản của người dùng này, và sẽ hiển thị cho thành viên khi họ đăng nhập, hãy viết ngắn."
+        suspend_reason_hidden_label: "Tại sao bạn lại đình chỉ? Văn bản này sẽ được hiển thị cho người dùng khi họ cố gắng đăng nhập. Hãy viết ngắn gọn."
         suspend_reason: "Lý do"
         suspend_reasons:
           not_listening_to_staff: "Không lắng nghe phản hồi của nhân viên"
@@ -4262,7 +4275,7 @@ vi:
         reset: "trạng thái đầu"
         none: "không có gì"
       site_settings:
-        title: "Xác lập"
+        title: "Cài đặt"
         no_results: "Không tìm thấy kết quả."
         more_than_30_results: "Có hơn 30 kết quả. Vui lòng tinh chỉnh tìm kiếm của bạn hoặc chọn một danh mục."
         clear_filter: "Xóa"
@@ -4393,6 +4406,7 @@ vi:
           upload_csv: Tải lên CSV có email hoặc tên người dùng
           aborted: Vui lòng tải lên CSV có chứa email người dùng hoặc tên người dùng
           success: CSV của bạn đã được nhận và người dùng sẽ sớm nhận được huy hiệu của họ.
+          replace_owners: Xóa huy hiệu khỏi chủ sở hữu trước đó
       emoji:
         title: "Emoji"
         help: "Thêm emoji mới có sẵn cho tất cả mọi người. (MẸO: kéo & thả nhiều file cùng lúc)"

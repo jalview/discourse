@@ -193,7 +193,6 @@ ca:
     submit: "Envia"
     generic_error: "Ho sentim, s'ha produït un error."
     generic_error_with_reason: "Hi ha hagut un error: %{error}"
-    go_ahead: "Avant"
     sign_up: "Registre"
     log_in: "Inicia sessió"
     age: "Edat"
@@ -222,7 +221,6 @@ ca:
     x_more:
       one: "%{count} Més"
       other: "%{count} Més"
-    less: "Menys"
     never: "mai"
     every_30_minutes: "cada 30 minuts"
     every_hour: "cada hora"
@@ -231,7 +229,6 @@ ca:
     every_month: "cada mes"
     every_six_months: "cada sis mesos"
     max_of_count: "màxim de %{count}"
-    alternation: "o"
     character_count:
       one: "%{count} caràcter"
       other: "%{count} caràcters"
@@ -263,7 +260,6 @@ ca:
       help:
         bookmark: "Feu clic per a marcar com a preferit la primera publicació d'aquest tema"
         unbookmark: "Feu clic per a eliminar tots els preferits d'aquest tema"
-        unbookmark_with_reminder: "Feu clic per a eliminar tots els marcadors i recordatoris d’aquest tema. Teniu un recordatori establert %{reminder_at} per a aquest tema."
     bookmarks:
       created: "Heu marcat com a preferida aquesta publicació. %{name}"
       not_bookmarked: "marca aquesta publicació com a preferit"
@@ -499,8 +495,8 @@ ca:
       later_today: "Més tard avui"
       next_business_day: "El pròxim dia feiner"
       tomorrow: "Demà"
-      next_week: "La setmana que ve"
       later_this_week: "Més avant aquesta setmana"
+      this_weekend: "Aquest cap de setmana"
       start_of_next_business_week: "Dilluns"
       start_of_next_business_week_alt: "Dilluns vinent"
       next_month: "El mes que ve"
@@ -541,6 +537,11 @@ ca:
       total_rows:
         one: "%{count} usuari"
         other: "%{count} usuaris"
+      edit_columns:
+        save: "Desa"
+        reset_to_default: "Restableix el valor predeterminat"
+      group:
+        all: "tots els grups"
     group_histories:
       actions:
         change_group_setting: "Canvia la configuració del grup"
@@ -552,13 +553,6 @@ ca:
       member_added: "Afegit"
       member_requested: "Sol·licitat"
       add_members:
-        title: "Afegeix membres a %{group_name}"
-        description: "També podeu enganxar una llista separada per comes."
-        usernames_or_emails:
-          title: "Introduïu noms d’usuari o adreces de correu electrònic"
-          input_placeholder: "Noms d’usuari o correus electrònics"
-        usernames:
-          input_placeholder: "Noms d'usuari"
         notify_users: "Notifiqueu els usuaris"
       requests:
         title: "Sol·licituds"
@@ -573,7 +567,7 @@ ca:
         title: "Gestiona"
         name: "Nom"
         full_name: "Nom complet"
-        add_members: "Afegeix membres"
+        invite_members: "Convida"
         delete_member_confirm: "Voleu eliminar '%{username}' del grup '%{group}'?"
         profile:
           title: Perfil
@@ -583,6 +577,7 @@ ca:
           notification: Notificació
         email:
           title: "Correu electrònic"
+          last_updated_by: "per"
           credentials:
             title: "Credencials"
             smtp_server: "Servidor SMTP"
@@ -595,8 +590,6 @@ ca:
             password: "Contrasenya"
           settings:
             title: "Configuració"
-          mailboxes:
-            disabled: "desactivat"
         membership:
           title: Membres
           access: Accés
@@ -1909,7 +1902,6 @@ ca:
       back_to_list: "Torna a la llista de temes"
       options: "Opcions del tema"
       show_links: "mostra enllaços dins d'aquest tema"
-      toggle_information: "commuta els detalls del tema"
       read_more_in_category: "Voleu llegir-ne més? Navegueu per altres temes a %{catLink} o %{latestLink}."
       read_more: "Voleu llegir-ne més? %{catLink} o %{latestLink}."
       unread_indicator: "Cap membre encara no ha llegit la darrera publicació d'aquest tema."
@@ -2712,7 +2704,6 @@ ca:
         show_incoming_updated_topics: "%{shortcut} Mostra temes actualitzats"
         search: "%{shortcut} Cerca"
         help: "%{shortcut} Obre l'ajuda de teclat"
-        dismiss_new_posts: "%{shortcut} Descarta publicacions noves"
         dismiss_topics: "%{shortcut} Descarta temes"
         log_out: "%{shortcut} Tanca la sessió"
       composing:
@@ -2829,14 +2820,9 @@ ca:
           description: "No sereu notificat de res sobre temes nous amb aquesta etiqueta, i no apareixeran en la pestanya de no llegits."
       groups:
         title: "Grups d'etiquetes"
-        about: "Afegeix etiquetes a grups per a gestionar-los més fàcilment."
         new: "Nou grup"
-        tags_label: "Etiquetes en aquest grup:"
-        parent_tag_label: "Etiqueta primària:"
-        parent_tag_description: "Les etiquetes d'aquest grup no es poden fer servir si no hi és l'etiqueta primària."
         one_per_topic_label: "Limita a una etiqueta per cada tema d'aquest grup"
         new_name: "Nou grup d'etiquetes"
-        name_placeholder: "Nom del grup d’etiquetes"
         save: "Desa"
         delete: "Suprimeix"
         confirm_delete: "Esteu segur que voleu suprimir aquest grup d'etiquetes?"
@@ -2866,6 +2852,13 @@ ca:
       remaining: "%{remaining} restant"
       options:
         custom: "Personalitzat"
+    trust_levels:
+      names:
+        newuser: "usuari nou"
+        basic: "usuari bàsic"
+        member: "membre"
+        regular: "habitual"
+        leader: "líder"
   admin_js:
     type_to_filter: "escriu per a filtrar..."
     admin:
@@ -2980,8 +2973,6 @@ ca:
             available: "El nom de grup és disponible"
             not_available: "El nom de grup no és disponible"
             blank: "El nom de grup no pot restar en blanc"
-        add_members:
-          as_owner: "Estableix usuaris com a propietaris d'aquest grup"
         manage:
           interaction:
             email: Correu electrònic
@@ -3685,6 +3676,7 @@ ca:
           require_approval: "Requereix aprovació"
           flag: "Bandera"
           replace: "Reemplaça"
+          silence: "Silencia"
         action_descriptions:
           block: "Impedeix que es publiquin texts que continguin aquestes paraules. L'usuari veurà un missatge d'error quan intenti enviar la publicació. "
           censor: "Permet publicacions que contenen aquestes paraules, però reemplaça-les amb caràcters que amaguin les paraules censurades."
@@ -3692,6 +3684,7 @@ ca:
           flag: "Permet publicacions que contenen aquestes paraules, però senyala-les amb bandera com a inapropiades de manera que els moderadors puguin revisar-les"
         form:
           placeholder_regexp: "expressió regular"
+          link_placeholder: "https://example.com"
           add: "Afegeix"
           success: "Èxit"
           exists: "Ja existeix"

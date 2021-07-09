@@ -102,10 +102,10 @@ createSearchResult({
     let avatarFlair;
     if (group.flairUrl) {
       avatarFlair = this.attach("avatar-flair", {
-        primary_group_flair_url: group.flairUrl,
-        primary_group_flair_bg_color: group.flairBgColor,
-        primary_group_flair_color: group.flairColor,
-        primary_group_name: name,
+        flair_name: name,
+        flair_url: group.flairUrl,
+        flair_bg_color: group.flairBgColor,
+        flair_color: group.flairColor,
       });
     } else {
       avatarFlair = iconNode("users");
@@ -182,8 +182,8 @@ createSearchResult({
     }
 
     const link = h("span.topic", [
-      h("div.first-line", firstLine),
-      h("div.second-line", secondLine),
+      h("span.first-line", firstLine),
+      h("span.second-line", secondLine),
     ]);
 
     return postResult.call(this, result, link, term);

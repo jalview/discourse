@@ -80,6 +80,7 @@
                       isDisabled=disableCategoryChooser
                       options=(hash
                         scopedCategoryId=scopedCategoryId
+                        prioritizedCategoryId=prioritizedCategoryId
                       )
                     }}
                     {{popup-input-tip validation=categoryValidation}}
@@ -117,6 +118,7 @@
                           popupMenuOptions=popupMenuOptions
                           draftStatus=model.draftStatus
                           isUploading=isUploading
+                          isProcessingUpload=isProcessingUpload
                           allowUpload=allowUpload
                           uploadIcon=uploadIcon
                           isCancellable=isCancellable
@@ -167,21 +169,23 @@
 
             {{#if isUploading}}
               <div id="file-uploading">
-                {{loading-spinner size="small"}}<span>{{i18n "upload_selector.uploading"}} {{uploadProgress}}%</span>
+                {{#if isProcessingUpload}}
+                  {{loading-spinner size="small"}}<span>{{i18n "upload_selector.processing"}}</span>
+                {{else}}
+                  {{loading-spinner size="small"}}<span>{{i18n "upload_selector.uploading"}} {{uploadProgress}}%</span>
+                {{/if}}
                 {{#if isCancellable}}
                   <a href id="cancel-file-upload" {{action "cancelUpload"}}>{{d-icon "times"}}</a>
                 {{/if}}
               </div>
             {{/if}}
             <div class={{if isUploading "hidden"}} id="draft-status">
-              {{#if model.draftSaving}}<div class="spinner small"></div>{{/if}}
-              {{#if model.draftSaved}}{{d-icon "check" class="save-animation"}}{{/if}}
               {{#if model.draftStatus}}
                 <span title={{model.draftStatus}}>
                   {{#if model.draftConflictUser}}
                     {{avatar model.draftConflictUser imageSize="small"}} {{d-icon "user-edit"}}
                   {{else}}
-                    {{d-icon "sync-alt"}}
+                    {{d-icon "exclamation-triangle"}}
                   {{/if}}
                   {{#unless site.mobileView}}
                     {{model.draftStatus}}
@@ -196,7 +200,7 @@
             {{plugin-outlet name="composer-mobile-buttons-bottom" connectorTagName="" args=(hash model=model)}}
 
             {{#if allowUpload}}
-              <a class="btn btn-default no-text mobile-file-upload {{if isUploading "hidden"}}"  aria-label={{i18n "composer.upload_title"}}>
+              <a id="mobile-file-upload" class="btn btn-default no-text mobile-file-upload {{if isUploading "hidden"}}"  aria-label={{i18n "composer.upload_title"}}>
                 {{d-icon uploadIcon}}
               </a>
             {{/if}}

@@ -42,11 +42,17 @@
 
   button.bulk-select {
     padding: 0;
+    line-height: $line-height-large;
   }
 
   td.bulk-select {
-    padding: 10px;
+    padding: 0;
     width: 30px;
+    label {
+      margin: 0px;
+      padding: 12px 10px 16px 10px;
+      cursor: pointer;
+    }
     + .main-link {
       padding-left: 0;
     }
@@ -178,7 +184,8 @@
 
 #bulk-select {
   position: fixed;
-  right: 20px;
+  right: 10px; // match horizontal padding on .wrap
+  padding-top: 12px; // match .topic-list th padding
   background-color: var(--secondary);
   z-index: z("dropdown");
   @supports (position: sticky) {

@@ -193,14 +193,12 @@ sw:
     now: "sasa hivi"
     read_more: "soma zaidi"
     more: "Zaidi"
-    less: "Punguza"
     never: "kamwe"
     every_30_minutes: "kila dakika 30"
     every_hour: "kila saa"
     daily: "kila siku"
     weekly: "kila wiki"
     max_of_count: "kiwango cha juu cha %{count}"
-    alternation: "au"
     character_count:
       one: "Herufi %{count}"
       other: "Herufi %{count}"
@@ -334,8 +332,8 @@ sw:
     time_shortcut:
       later_today: "Baada ya mda leo"
       tomorrow: "Kesho"
-      next_week: "Wiki Ijayo"
       later_this_week: "Baada ya mda ndani ya wiki hii"
+      this_weekend: "Wikiendi hii"
       next_month: "Mwezi ujao"
     user_action:
       user_posted_topic: "<a href='%{userUrl}'>%{mtumiaji}</a> amechapisha <a href='%{topicUrl}'>mada</a>"
@@ -372,6 +370,10 @@ sw:
       total_rows:
         one: "Mtumiaji mmoja"
         other: "%{count} watumiaji"
+      edit_columns:
+        save: "hifadhi"
+      group:
+        all: "vikundi vyote"
     group_histories:
       actions:
         change_group_setting: "Badilisha mipangilio ya kikundi"
@@ -380,9 +382,6 @@ sw:
         make_user_group_owner: "Mfanye awe mmiliki"
         remove_user_as_group_owner: "Ondoa mmiliki"
     groups:
-      add_members:
-        usernames:
-          input_placeholder: "Majina la watumiaji"
       requests:
         reason: "Sababu"
         accepted: "imeruhusiwa"
@@ -390,7 +389,7 @@ sw:
         title: "Simamia"
         name: "Jina"
         full_name: "Jina Lote"
-        add_members: "Ongeza Wanachama"
+        invite_members: "Mualiko"
         delete_member_confirm: "Ondoa '%{username}' kwenye kikundi '%{group}'?"
         profile:
           title: Umbo
@@ -400,13 +399,12 @@ sw:
           notification: Taarifa
         email:
           title: "Barua Pepe"
+          last_updated_by: "na"
           credentials:
             username: "Jina la mtumiaji"
             password: "Nywila"
           settings:
             title: "Mpangilio"
-          mailboxes:
-            disabled: "imezuiwa"
         membership:
           title: Uanachama
           access: Ufikivu
@@ -1525,7 +1523,6 @@ sw:
       back_to_list: "Rudi tena kwenye Orodha ya Mada"
       options: "Machaguo ya Mada"
       show_links: "onyesha viungo ndani ya hii mada"
-      toggle_information: "badilisha taarifa za mada"
       read_more_in_category: "Unataka kusoma zaidi? Vinjari mada zingine ndani ya %{catLink} au %{latestLink}."
       read_more: "Unataka kusoma zaidi? %{catLink} au %{latestLink}."
       browse_all_categories: Vinjari kategoria zote
@@ -2162,7 +2159,6 @@ sw:
         show_incoming_updated_topics: "%{shortcut} Onyesha mada zilizosasishwa"
         search: "%{shortcut} Tafuta"
         help: "%{shortcut} Fungua msaada wa kibodi"
-        dismiss_new_posts: "%{shortcut} Ondosha Mpya/Machapisho"
         dismiss_topics: "%{shortcut} Puuzia Mada"
         log_out: "%{shortcut} Ondoka"
       composing:
@@ -2252,11 +2248,7 @@ sw:
           description: "Hautajulishwa kuhusu mada mpya zenye lebo hii, na hazitatokea kwenye sehemu ya taarifa ambazo hazijasomwa."
       groups:
         title: "Vikundi vya Lebo"
-        about: "Ongeza lebo kwenye vikundi kuzisimamia kwa urahisi zaidi."
         new: "Kundi jipya"
-        tags_label: "Lebo kwenye kundi hili"
-        parent_tag_label: "lebo zazi"
-        parent_tag_description: "Lebo za kikundi hiki haziwezi kutumika kama lebo miliki haipo."
         one_per_topic_label: "Weka kikomo cha lebo moja kwenye kila mada iliyo ndani ya kikundi hiki"
         new_name: "Kikundi Kipya cha Lebo"
         save: "Hifadhi"
@@ -2283,6 +2275,13 @@ sw:
     do_not_disturb:
       options:
         custom: "Binafsi"
+    trust_levels:
+      names:
+        newuser: "mtumiaji mpya"
+        basic: "mtumiaji wa kawaida"
+        member: "mwanachama"
+        regular: "kawaida"
+        leader: "kiongozi"
   admin_js:
     type_to_filter: "andika kuchuja..."
     admin:
@@ -2370,8 +2369,6 @@ sw:
             available: "Jina la kikundi lipo"
             not_available: "Jina la kikundi halipo"
             blank: "Jina la kikundi haliwezi kuwa wazi"
-        add_members:
-          as_owner: "Fanya w(m)umiaji kuwa w(m)amiliki wa kikundi hiki"
         manage:
           interaction:
             email: Barua Pepe
@@ -2887,6 +2884,7 @@ sw:
           censor: "Kizuizi"
           require_approval: "Inahitaji Uthibitisho"
           flag: "Bendera"
+          silence: "Imenyamazishwa"
         action_descriptions:
           block: "Zuia machapisho yenye maneno haya kuchapishwa. Mtumiaji ataona ujumbe wa hitilafu akijaribu kuwasilisha chapisho."
           censor: "Ruhusu machapisho yenye maneno yafuatayo, lakini badilisha maneno hayo na herufi zinazoficha maneno yanayokatazwa."
@@ -2894,6 +2892,7 @@ sw:
           flag: "Ruhusu machapisho yawe na maneno haya, ila ripoti kuonyesha kuwa hazifai ili wasimamizi waweze kuzikagua."
         form:
           placeholder_regexp: "muonekano wa kawaida"
+          link_placeholder: "https://example.com"
           add: "Ongeza"
           success: "Mafanikio"
           exists: "Tayari ipo"

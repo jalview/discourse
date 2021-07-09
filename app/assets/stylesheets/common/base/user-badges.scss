@@ -7,7 +7,7 @@
   display: inline-flex;
   align-items: center;
   background-color: var(--secondary);
-  margin: 0 0 3px;
+  margin: 4px 0 0;
 
   img {
     height: 16px;
@@ -141,6 +141,12 @@
     font-weight: bold;
     color: var(--primary-medium);
     font-size: $font-up-2;
+  }
+
+  .favorite-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 
   .badge-contents {

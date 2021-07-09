@@ -212,7 +212,6 @@ lv:
       zero: "Vēl %{count}"
       one: "Vēl %{count}"
       other: "Vēl %{count}"
-    less: "Mazāk"
     never: "nekad"
     every_30_minutes: "katras 30 minūtes"
     every_hour: "katru stundu"
@@ -221,7 +220,6 @@ lv:
     every_month: "katru mēnesi"
     every_six_months: "katrus sešus mēnešus"
     max_of_count: "ne vairāk kā %{count}"
-    alternation: "vai"
     character_count:
       zero: "%{count} zīmes"
       one: "%{count} zīme"
@@ -353,8 +351,8 @@ lv:
     time_shortcut:
       later_today: "Vēlāk šodien"
       tomorrow: "Rītdien"
-      next_week: "Nākamā nedēļā"
       later_this_week: "Vēlāk šonedēļ"
+      this_weekend: "Šajā nedēļas nogalē"
       next_month: "Nākamā mēnesī"
     user_action:
       user_posted_topic: "<a href='%{userUrl}'>%{user}</a> pievienoja ierakstus <a href='%{topicUrl}'>tēmai</a>"
@@ -392,6 +390,10 @@ lv:
         zero: "Nav lietotāju"
         one: "%{count} lietotājs"
         other: "%{count} lietotāji"
+      edit_columns:
+        save: "Saglabāt"
+      group:
+        all: "visas grupas"
     group_histories:
       actions:
         change_group_setting: "Mainīt grupas iestatījumus"
@@ -405,7 +407,7 @@ lv:
       manage:
         name: "Vārds"
         full_name: "Pilns vārds"
-        add_members: "Pievienot dalībniekus"
+        invite_members: "Ielūgt"
         delete_member_confirm: "Izņemt '%{username}' no grupas '%{group}'?"
         profile:
           title: Profils
@@ -413,6 +415,7 @@ lv:
           posting: Ieraksti
         email:
           title: "E-pasts"
+          last_updated_by: " "
           credentials:
             username: "Lietotājvārds"
             password: "Parole"
@@ -1400,7 +1403,6 @@ lv:
       back_to_list: "Atpakaļ pie tēmu saraksta "
       options: "Tēmas iestatījumi "
       show_links: "rādīt saites šajā tēmā"
-      toggle_information: "rādīt / slēpt tēmas informāciju "
       read_more_in_category: "Vēlies lasīt vēl? Pārlūko citas tēmas: %{catLink} vai %{latestLink}."
       read_more: "Vēlies lasīt vēl? %{catLink} or %{latestLink}."
       browse_all_categories: Pārlūkot visas sadaļas
@@ -2090,7 +2092,6 @@ lv:
         user_profile_menu: "%{shortcut} Atvērt lietotaja menu"
         show_incoming_updated_topics: "%{shortcut} Parādīt tēmas ar izmaiņām"
         help: "%{shortcut} Atvērt klaviatūras palīdzību"
-        dismiss_new_posts: "%{shortcut} Ignorēt jauno/ierakstus"
         dismiss_topics: "%{shortcut} Ignorēt tēmas"
         log_out: "%{shortcut} Iziet no foruma"
       actions:
@@ -2183,11 +2184,7 @@ lv:
           title: "Klusināts"
       groups:
         title: "Tagu grupas"
-        about: "Pievieno tagus grupām, lai vieglāk tos pārvaldītu."
         new: "Jauna grupa"
-        tags_label: "Tagi šai grupā:"
-        parent_tag_label: "Vecāktags:"
-        parent_tag_description: "Tagus no šīs grupas nevar izmantot, ja vien neizmanto arī vecāktagu"
         one_per_topic_label: "No šīs grupas atļaut tikai vienu tagu vienā tēmā"
         new_name: "Jauna tagu grupa"
         save: "Saglabāt"
@@ -2214,6 +2211,11 @@ lv:
       enabled: "Ir ieslēgts drošais režīms; lai pamestu drošo režīmu, aizveriet šo pārlūkprogrammas logu"
     do_not_disturb:
       remaining: "palicis %{remaining}"
+    trust_levels:
+      names:
+        newuser: "jauns lietotājs"
+        member: "biedrs"
+        regular: "regulārs"
   admin_js:
     type_to_filter: "ievadiet, lai atlasītu..."
     admin:

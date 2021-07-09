@@ -236,7 +236,6 @@ lt:
     submit: "Pateikti"
     generic_error: "Atsiprašome, įvyko klaida."
     generic_error_with_reason: "Įvyko klaida: %{error}"
-    go_ahead: "Pirmyn"
     sign_up: "Registruotis"
     log_in: "Prisijungti"
     age: "Amžius"
@@ -269,7 +268,6 @@ lt:
       few: "%{count} Daugiau"
       many: "%{count} Daugiau"
       other: "%{count} Daugiau"
-    less: "Mažiau"
     never: "niekada"
     every_30_minutes: "kas 30 minučių"
     every_hour: "kiekvieną valandą"
@@ -278,7 +276,6 @@ lt:
     every_month: "kiekvieną mėnesį"
     every_six_months: "kas šešis mėnesius"
     max_of_count: "daugiausia iš %{count}"
-    alternation: "arba"
     character_count:
       one: "%{count} simbolis"
       few: "%{count} simboliai"
@@ -455,8 +452,8 @@ lt:
     time_shortcut:
       later_today: "Šiandien vėliau"
       tomorrow: "Rytoj"
-      next_week: "Kitą savaitę"
       later_this_week: "Šia savaitę vėliau"
+      this_weekend: "Šį savaitgalį"
       start_of_next_business_week: "Pirmadienis"
       next_month: "Kitą mėnesį"
     user_action:
@@ -496,6 +493,10 @@ lt:
         few: "%{count} vartotojų"
         many: "%{count} vartotojų"
         other: "%{count} vartotojų"
+      edit_columns:
+        save: "Saugoti"
+      group:
+        all: "visos grupės"
     group_histories:
       actions:
         change_group_setting: "Pakeisti grupės nustatymus"
@@ -505,9 +506,6 @@ lt:
         remove_user_as_group_owner: "Atšaukti valdytoją"
     groups:
       member_added: "Pridėta"
-      add_members:
-        usernames:
-          input_placeholder: "Slapyvardžiai"
       requests:
         reason: "Priežastis"
         accepted: "patvirtinta"
@@ -515,7 +513,7 @@ lt:
         title: "Redaguoti"
         name: "Vardas"
         full_name: "Vardas ir pavardė"
-        add_members: "Pridėti narių"
+        invite_members: "Kviesti"
         delete_member_confirm: "Pašalinti '%{username}' iš '%{group}' grupės?"
         profile:
           title: Profilis
@@ -525,13 +523,12 @@ lt:
           notification: Perspėjimai
         email:
           title: "Epaštas"
+          last_updated_by: "nuo"
           credentials:
             username: "Slapyvardis"
             password: "Slaptažodis"
           settings:
             title: "Nustatymai"
-          mailboxes:
-            disabled: "uždrausta"
         membership:
           title: Narystė
           access: Prieiga
@@ -1596,7 +1593,6 @@ lt:
       back_to_list: "Grįžti į temų sąrašą"
       options: "Nustatymai"
       show_links: "Rodyti šios temos nuorodas"
-      toggle_information: "perjungti temos detales"
       read_more_in_category: "Nori skaityti daugiau? Ieškok kitų temų %{catLink} arba %{latestLink}."
       read_more: "Norite skaityti daugiau? %{catLink} arba %{latestLink}."
       browse_all_categories: Žiūrėkite visas kategorijas
@@ -2291,7 +2287,6 @@ lt:
         user_profile_menu: "%{shortcut} Atidaryti vartotojo meniu"
         show_incoming_updated_topics: "%{shortcut} Rodyti atnaujintas temas"
         help: "%{shortcut} Atidaryti klavieturos pagalbą"
-        dismiss_new_posts: "%{shortcut} Praleisti Naujas/Žinutes"
         dismiss_topics: "%{shortcut} Praleisti Temas"
         log_out: "%{shortcut} Atsijungti"
       actions:
@@ -2368,8 +2363,6 @@ lt:
       groups:
         title: "Žymos grupės"
         new: "Nauja grupė"
-        tags_label: "Žymos šioje grupėje"
-        parent_tag_label: "Panašios žymos:"
         new_name: "Nauja žymos grupė"
         save: "Saugoti"
         delete: "Pašalinti"
@@ -2391,6 +2384,13 @@ lt:
     do_not_disturb:
       options:
         custom: "Išskirtinės"
+    trust_levels:
+      names:
+        newuser: "naujas vartotojas"
+        basic: "pagrindinis vartotojas"
+        member: "narys"
+        regular: "reguliarus"
+        leader: "lyderis"
   admin_js:
     type_to_filter: "įrašyk kažką dėl filtro..."
     admin:
@@ -2896,6 +2896,7 @@ lt:
           block: "Blokuoti"
           require_approval: "Reikalauja patvirtinimo"
           flag: "Pranešti"
+          silence: "Nutildyti"
         form:
           add: "Pridėti"
           success: "Sėkmingai"

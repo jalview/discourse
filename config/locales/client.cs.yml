@@ -239,7 +239,6 @@ cs:
     submit: "Odeslat"
     generic_error: "Bohužel nastala chyba."
     generic_error_with_reason: "Nastala chyba: %{error}"
-    go_ahead: "Pokračuj"
     sign_up: "Registrace"
     log_in: "Přihlásit se"
     age: "Věk"
@@ -272,7 +271,6 @@ cs:
       few: "%{count} další"
       many: "%{count} Více"
       other: "%{count} Více"
-    less: "Méně"
     never: "nikdy"
     every_30_minutes: "každých 30 minut"
     every_hour: "každou hodinu"
@@ -281,7 +279,6 @@ cs:
     every_month: "každý měsíc"
     every_six_months: "každých šest měsíců"
     max_of_count: "max z"
-    alternation: "nebo"
     character_count:
       one: "%{count} znak"
       few: "%{count} znaky"
@@ -315,7 +312,6 @@ cs:
       help:
         bookmark: "Kliknutím vložíte záložku na první příspěvek tohoto tématu"
         unbookmark: "Kliknutím odstraníte všechny záložky v tématu"
-        unbookmark_with_reminder: "Kliknutím odstraníte všechny záložky a připomenutí v tomto tématu. Máte nastavenou upomínku %{reminder_at} pro toto téma."
     bookmarks:
       created: "Tento příspěvek jste přidali do záložek. %{name}"
       not_bookmarked: "přidat záložku k příspěvku"
@@ -506,9 +502,9 @@ cs:
       later_today: "Později dnes"
       next_business_day: "Následující pracovní den"
       tomorrow: "Zítra"
-      next_week: "Příští týden"
       post_local_date: "Datum v příspěvku"
       later_this_week: "Později tento týden"
+      this_weekend: "Tento týden"
       start_of_next_business_week: "Pondělí"
       start_of_next_business_week_alt: "Příští pondělí"
       next_month: "Další měsíc"
@@ -550,6 +546,10 @@ cs:
         few: "%{count} uživatelé"
         many: "%{count} uživatelů"
         other: "%{count} uživatelů"
+      edit_columns:
+        save: "Uložit"
+      group:
+        all: "všechny skupiny"
     group_histories:
       actions:
         change_group_setting: "Změnit nastavení skupiny"
@@ -559,9 +559,6 @@ cs:
         remove_user_as_group_owner: "Odstraň vlastníka"
     groups:
       member_added: "Přidáno"
-      add_members:
-        usernames:
-          input_placeholder: "Uživatelská jména"
       requests:
         reason: "Reason"
         accepted: "přijato"
@@ -569,7 +566,7 @@ cs:
         title: "Spravovat"
         name: "Název"
         full_name: "Celé název"
-        add_members: "Přidat členy"
+        invite_members: "Pozvat"
         delete_member_confirm: "Odstranit '%{username}' ze '%{group}' skupiny?"
         profile:
           title: Profil
@@ -579,6 +576,7 @@ cs:
           notification: Notifikace
         email:
           title: "Email"
+          last_updated_by: "od"
           credentials:
             username: "Uživatelské jméno"
             password: "Heslo"
@@ -1898,7 +1896,6 @@ cs:
       back_to_list: "Zpátky na seznam témat"
       options: "Možnosti"
       show_links: "zobrazit odkazy v tomto tématu"
-      toggle_information: "zobrazit/skrýt detaily tématu"
       read_more_in_category: "Chcete si toho přečíst víc? Projděte si témata v %{catLink} nebo %{latestLink}."
       read_more: "Chcete si přečíst další informace? %{catLink} nebo %{latestLink}."
       browse_all_categories: Projděte všechny kategorie
@@ -2693,7 +2690,6 @@ cs:
         show_incoming_updated_topics: "%{shortcut} Ukáže aktualizovaná témata"
         search: "%{shortcut}Vyhledávání"
         help: "%{shortcut} Otevře seznam klávesových zkratek"
-        dismiss_new_posts: "%{shortcut} Označit jako přečtené nové/příspěvky"
         dismiss_topics: "%{shortcut} Označit témata jako přečtená"
         log_out: "%{shortcut} Odhlásit se"
       composing:
@@ -2809,11 +2805,7 @@ cs:
           description: "Nebudete upozorněni na žádná nová témata s tímto tagem, a nebudou se objevovat na vaší záložce s nepřečtenými."
       groups:
         title: "Skupiny štítků"
-        about: "Přidej štítky do skupin pro přehlednost"
         new: "Nová skupina"
-        tags_label: "Štítky v této skupině:"
-        parent_tag_label: "Nadřazený štítek:"
-        parent_tag_description: "Štítky z této skupiny nemohou být použity pokud není přítomen nadřazený štítek."
         one_per_topic_label: "Omezit na jeden štítek k tématu z této skupiny"
         new_name: "Nová skupina štítků"
         save: "Uložit"
@@ -2845,6 +2837,13 @@ cs:
       remaining: "%{remaining} zbývá"
       options:
         custom: "Přizpůsobené"
+    trust_levels:
+      names:
+        newuser: "nový uživatel"
+        basic: "základní uživatel"
+        member: "člen"
+        regular: "pravidelný uživatel"
+        leader: "vůdce"
   admin_js:
     type_to_filter: "text pro filtrování..."
     admin:
@@ -3470,6 +3469,7 @@ cs:
           censor: "Cenzurovat "
           require_approval: "Vyžádat schválení"
           flag: "Nahlášení"
+          silence: "Ztišit"
         action_descriptions:
           block: "Zabránit přidání příspěvků obsahující tato slova. Uživatel uvidí chybovou hlášku ve chvíli, kdy se pokusí odeslat svůj příspěvek."
           censor: "Povolit příspěvky obsahující tato slova, ale nahradit je symboly, které skryjí cenzurovaná slova."
@@ -3477,6 +3477,7 @@ cs:
           flag: "Povolit příspěvky obsahující tato slova, ale oflagovat je jako nevhodně, aby je mohli moderátoři kontrolovat."
         form:
           placeholder_regexp: "obvyklý výraz"
+          link_placeholder: "https://example.com"
           add: "přidat"
           success: "Úspěch"
           upload_successful: "Nahráno úspěšně. Slova byla přidána "

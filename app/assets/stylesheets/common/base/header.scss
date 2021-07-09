@@ -213,19 +213,6 @@
   background-color: var(--highlight-medium);
 }
 
-.search-highlight {
-  font-weight: bold;
-}
-
-#search-help table td {
-  padding-right: 10px;
-}
-
-// we don't need this X to clear field
-#search-term::-ms-clear {
-  display: none;
-}
-
 // topic info in the header
 .extra-info-wrapper {
   display: flex;
@@ -302,6 +289,7 @@
     align-items: center;
     max-width: 100%;
     .discourse-tags {
+      display: inline;
       color: var(--header_primary-high);
       @include ellipsis;
       .discourse-tag {

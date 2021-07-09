@@ -241,16 +241,8 @@ lt:
     cannot_delete:
       has_subcategories: "Negalima pašalinti kategorijos, nes ji turi subkategorijų."
   trust_levels:
-    newuser:
-      title: "naujas vartotojas"
-    basic:
-      title: "pagrindinis vartotojas"
-    member:
-      title: "narys"
-    regular:
-      title: "reguliarus"
-    leader:
-      title: "lyderis"
+    admin: "Administratorius"
+    staff: "Komanda"
   post:
     image_placeholder:
       broken: "Šis paveikslėlis yra sugadintas"
@@ -1122,8 +1114,6 @@ lt:
         description: "Sutikti su pranešimu ir nutildyti narį."
       agree_and_hide:
         title: "Paslėpti įrašą"
-      delete_spammer:
-        title: "Ištrinti Vartotoją"
       delete_single:
         title: "Pašalinti"
       disagree:
@@ -1137,8 +1127,6 @@ lt:
           title: "Ištrinti vartotoją"
       reject:
         title: "Atmesti"
-      delete_user:
-        title: "Ištrinti vartotoją"
   activemodel:
     errors:
       <<: *errors
