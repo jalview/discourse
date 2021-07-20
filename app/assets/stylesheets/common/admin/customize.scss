@@ -295,6 +295,37 @@
         width: 100%;
       }
     }
+
+    .themes-list-filter {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: var(--secondary);
+      z-index: z("base");
+      height: 3em;
+
+      .d-icon {
+        position: absolute;
+        padding-left: 0.5em;
+      }
+
+      .filter-input {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border: 0;
+        padding-left: 2em;
+
+        &:focus {
+          outline: 0;
+
+          ~ .d-icon {
+            color: var(--tertiary-hover);
+          }
+        }
+      }
+    }
   }
 
   .theme.settings {
@@ -596,7 +627,6 @@
   }
   label input {
     width: auto;
-    margin: 3px 0;
   }
 }
 .public-key {
@@ -604,7 +634,17 @@
   textarea {
     cursor: auto;
     min-height: 220px;
+    margin-bottom: 0;
   }
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.public-key-text-wrapper {
+  position: relative;
 }
 
 .public-key-note {
